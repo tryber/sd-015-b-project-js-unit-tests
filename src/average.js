@@ -11,7 +11,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-// Number.isNaN(array[index]) || 
 const average = (array) => {
   let sum = 0;
   if (array.length === 0) {
