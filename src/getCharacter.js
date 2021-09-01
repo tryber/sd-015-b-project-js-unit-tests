@@ -67,5 +67,27 @@ const getCharacter = (name) => {
 
   return undefined;
 };
+const assert = require('assert');
 
+const expectedBrienne = {
+  name: 'Brienne Tarth',
+  class: 'Knight',
+  phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+};
+
+const expectedMelissandre = {
+  name: 'Melissandre',
+  class: 'Necromancer',
+  phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+};
+
+const expectedCaseSensitiveArya = {
+  name: 'Arya Stark',
+  class: 'Rogue',
+  phrases: ['Not today', 'A girl has no name.'],
+};
+
+assert.deepStrictEqual(getCharacter('Brienne'), expectedBrienne);
+assert.deepStrictEqual(getCharacter('Melissandre'), expectedMelissandre);
+assert.deepStrictEqual(getCharacter('Tyrion'), undefined);
 module.exports = getCharacter;
