@@ -40,12 +40,3 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
-productDetails();
-productDetails('um', 'dois').forEach((product) => {
-  const id = product.details.productId;
-  console.log(id);
-  console.log(id.endsWith(`${product.name}123`));
-});
-
-
-console.log(productDetails().length);
