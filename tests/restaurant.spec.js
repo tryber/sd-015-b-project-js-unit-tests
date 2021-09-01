@@ -188,7 +188,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
     //// Verifica se a chave pay é realmente um objeto
-    actual = typeof createMenu(testMenu).pay();
+    actual = typeof createMenu(testMenu).pay;
     expected = 'function';
     assert.strictEqual(actual, expected);
     //// Verifica se ao utilizar objetoRetornado.pay() ele retorna a soma dos valores de  objetoRetornado.consumption
