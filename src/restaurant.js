@@ -79,6 +79,37 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (menu) => {
+  const object = {
+    firstKey: null,
+    fetchMenu: () => menu,
+  };
+  return object;
+};
 
 module.exports = createMenu;
+const assert = require('assert');
+
+let expected;
+let actual;
+const testMenu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+//// Verifica se a saida é ou um objeto
+actual = typeof createMenu(testMenu);
+expected = 'object';
+assert.deepStrictEqual(actual, expected);
+//// Verifica se a saida não é um array
+actual = Array.isArray(createMenu(testMenu));
+expected = false;
+assert.strictEqual(actual, expected);
+//// Verifica se dentro do objeto de saída há uma chave chamada fetchMenu
+actual = Object.keys(createMenu(testMenu)).indexOf('fetchMenu');
+expected = -1;
+assert.notStrictEqual(actual, expected);
+//// Verifica se a chave fetchMenu é uma função
+actual = typeof createMenu(testMenu).fetchMenu;
+expected = 'function';
+assert.strictEqual(actual, expected);
+//// Verifica se dentro do objeto de saída so tem uma chave
+actual = Object.keys(createMenu(testMenu)).length;
+expected = 1;
+assert.notStrictEqual(actual, expected);

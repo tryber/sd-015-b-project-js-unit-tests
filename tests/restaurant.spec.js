@@ -48,12 +48,34 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
+    let expected;
+    let actual;
+    const testMenu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
+    //// Verifica se a saida é ou um objeto
+    actual = typeof createMenu(testMenu);
+    expected = 'object';
+    assert.deepStrictEqual(actual, expected);
+    //// Verifica se a saida não é um array
+    actual = Array.isArray(createMenu(testMenu));
+    expected = false;
+    assert.strictEqual(actual, expected);
+    //// Verifica se dentro do objeto de saída há uma chave chamada fetchMenu
+    actual = Object.keys(createMenu(testMenu)).indexOf('fetchMenu');
+    expected = -1;
+    assert.notStrictEqual(actual, expected);
+    //// Verifica se a chave fetchMenu é uma função
+    actual = typeof createMenu(testMenu).fetchMenu;
+    expected = 'function';
+    assert.strictEqual(actual, expected);
+    //// Verifica se dentro do objeto de saída so tem uma chave
+    actual = Object.keys(createMenu(testMenu)).length;
+    expected = 1;
+    assert.notStrictEqual(actual, expected);
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
     // ```
