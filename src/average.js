@@ -12,10 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const array = [3, 4, 5];
-const array1 = [0, 0, 0, 0, 0, 0, 0, 1];
-const array2 = [1, '3'];
-
 const average = (array) => {
   let sum = 0;
   if (array.length === 0) {
