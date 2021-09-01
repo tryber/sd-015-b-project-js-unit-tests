@@ -28,19 +28,4 @@ const circle = (radius) => {
   };
 };
 
-const assert = require('assert');
-
-const actual = circle(1);
-const expected = { radius: 1, area: 3.14, circumference: 6.28 };
-const actual2 = circle(7);
-const expected2 = { radius: 7, area: 153.86, circumference: 43.96 };
-const actual3 = circle(3);
-actual3.area = parseFloat((actual3.area).toPrecision(4));
-
-const expected3 = { radius: 3, area: 28.26, circumference: 18.84 };
-
-assert.deepStrictEqual(actual, expected);
-assert.deepStrictEqual(actual2, expected2);
-assert.deepStrictEqual(actual3, expected3);
-
 module.exports = circle;

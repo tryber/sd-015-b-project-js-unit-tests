@@ -18,7 +18,7 @@
 const createStudent = (name) => ({
     name,
     feedback: () => 'Eita pessoa boa!',
-  });
+});
 
 const assert = require('assert');
 

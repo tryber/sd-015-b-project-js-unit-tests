@@ -68,12 +68,4 @@ const getCharacter = (name) => {
   return undefined;
 };
 
-const assert = require('assert');
-
-const arya = getCharacter('Arya');
-const actualVazio = getCharacter();
-
-assert.strictEqual(actualVazio, undefined);
-assert.strictEqual(arya, characters.arya);
-
 module.exports = getCharacter;

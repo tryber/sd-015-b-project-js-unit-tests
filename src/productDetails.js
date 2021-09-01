@@ -39,4 +39,7 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+const assert = require('assert');
+
+
 module.exports = productDetails;

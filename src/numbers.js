@@ -18,12 +18,4 @@ const numbers = (myArray) => {
   return true;
 };
 
-const assert = require('assert');
-
-const actual = numbers([2, 3, 4]);
-const actual2 = numbers([2, 'errado', 5]);
-
-assert.strictEqual(actual, true);
-assert.strictEqual(actual2, false);
-
 module.exports = numbers;

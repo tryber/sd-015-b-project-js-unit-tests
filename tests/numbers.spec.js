@@ -22,5 +22,11 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
     // Escreva um teste em que a função recebe [' '] e retorna false
+    const actual = numbers([2, 3, 4]);
+    const actual2 = numbers([2, 'errado', 5]);
+
+    assert.strictEqual(actual, true);
+    assert.strictEqual(actual2, false);
+
   });
 });
