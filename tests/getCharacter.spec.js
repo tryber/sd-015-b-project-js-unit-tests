@@ -46,13 +46,39 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    assert.strictEqual(getCharacter(), undefined);
+
+    // Teste se a função retorna o objeto correto para o parâmetro 'Arya',]
+    const arya = {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    };
+
+    assert.deepStrictEqual(getCharacter('arya'), arya)
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+
+    const brienne =  {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+    }
+
+      assert.deepStrictEqual(getCharacter('brienne'), brienne)
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
-    // Teste se a função se os parâmetros não são Case Sensitive.
+
+    const melissandre = {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    }
+
+    assert.deepStrictEqual(getCharacter('melissandre'), melissandre);
+    // Teste se a função se os parâmetros não são Case Sensitive.c
+    assert.deepStrictEqual(getCharacter('MeLiSsAnDrE'), melissandre);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    assert.strictEqual(getCharacter('Jorge'), undefined);
   });
 });

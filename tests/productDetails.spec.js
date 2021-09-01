@@ -30,12 +30,23 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    
     // Teste que o retorno da função é um array.
+    // acessado: https://github.com/tryber/sd-014-b-project-js-unit-tests/blob/aline-js-unit-tests/tests/productDetails.spec.js
+    
+    assert.strictEqual(Array.isArray (productDetails('firstProduct', 'secondProduct')), true);
+    
     // Teste que o array retornado pela função contém dois itens dentro.
+    assert.strictEqual(productDetails('firstProduct', 'secondProduct').length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.strictEqual(typeof productDetails('firstProduct', 'secondProduct')[0], 'object');
+    assert.strictEqual(typeof productDetails('firstProduct', 'secondProduct')[1], 'object')
     // Teste que os dois objetos são diferentes entre si.
+    assert.notDeepEqual(productDetails('firstProduct', 'secondProduct')[0], productDetails('firstProduct', 'secondProduct')[1])
     // Teste que os dois productIds terminam com 123.
+    // acessado:https://www.codegrepper.com/code-examples/javascript/check+if+string+ends+with+javascript
+    assert.deepStrictEqual(productDetails('firstProduct', 'secondProduct')[0].details.productId.endsWith(123), true);
+    assert.deepStrictEqual(productDetails('firstProduct', 'secondProduct')[1].details.productId.endsWith(123), true);
   });
 });
