@@ -29,6 +29,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
+    let functionCircle = circle(30);
     let objeto = { radius: 30, area: 2826, circumference: 188.4 };
     assert.notStrictEqual(circle(30), objeto);
     // Teste se o objeto retornado tem 3 entradas.
