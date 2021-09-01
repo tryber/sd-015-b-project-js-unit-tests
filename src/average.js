@@ -15,16 +15,15 @@
 const average = (array) => {
   let media = 0;
   let valor = 0;
-  for (let index = 0; index < array.length; index +=1) {
+  for (let index = 0; index < array.length; index = index+1) {
     // Captura todos os valores depois retorna o total dividido pelo array.lenght
-    if ( typeof array[index] === 'number' && isFinite(array[index]) ) {
+    if (typeof array[index] === 'number')) {
       valor += array[index];
     } else {
-
       return undefined;
     }
   }
-  media = valor/array.length;
+  media = valor / array.length;
   return media;
 };
 
