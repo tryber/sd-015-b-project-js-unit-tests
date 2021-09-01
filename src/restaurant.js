@@ -163,5 +163,13 @@ actual.order('agua');
 actual.order('sopa');
 actual.order('sashimi');
 actual = actual.consumption;
-expected = ["coxinha", "agua", "sopa", "sashimi"];
+expected = ['coxinha', 'agua', 'sopa', 'sashimi'];
+assert.deepStrictEqual(actual, expected);
+//// Verifica se ao inserir valores repetidos eles entram repetidos no objetoRetornado.consumption
+actual = createMenu(testMenu);;
+actual.order('coxinha');
+actual.order('agua');
+actual.order('coxinha');
+actual = actual.consumption;
+expected = ['coxinha', 'agua', 'coxinha'];
 assert.deepStrictEqual(actual, expected);

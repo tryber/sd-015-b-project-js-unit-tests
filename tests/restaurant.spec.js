@@ -159,7 +159,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     actual.order('sopa');
     actual.order('sashimi');
     actual = actual.consumption;
-    expected = ["coxinha", "agua", "sopa", "sashimi"];
+    expected = ['coxinha', 'agua', 'sopa', 'sashimi'];
     assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
@@ -170,6 +170,14 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     // Agora faça o TESTE 8 deste arquivo.
+    //// Verifica se ao inserir valores repetidos eles entram repetidos no objetoRetornado.consumption
+    actual = createMenu(testMenu);;
+    actual.order('coxinha');
+    actual.order('agua');
+    actual.order('coxinha');
+    actual = actual.consumption;
+    expected = ['coxinha', 'agua', 'coxinha'];
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
