@@ -85,14 +85,42 @@ const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
 };
 
+const addToPayment = (item) => {
+  const menu = restaurant.fetchMenu();
+  if (item in menu.food) {
+    return menu.food[item];
+  }
+  if (item in menu.drink) {
+    return menu.drink[item];
+  }
+};
+
 const createMenu = (menu) => {
   restaurant.fetchMenu = () => menu;
   restaurant.consumption = [];
   restaurant.order = (request) => {
     orderFromMenu(request);
   };
+  restaurant.pay = () => {
+    let total = 0;
+    for (let i = 0, len = restaurant.consumption.length; i < len; i += 1) {
+      const item = restaurant.consumption[i];
+
+      total += addToPayment(item);
+    }
+    return total;
+  };
 
   return restaurant;
 };
+
+const terceiroRestaurante = createMenu({
+  food: { coxinha: 3.9, sanduiche: 9.9 },
+  drink: { agua: 3.9, cerveja: 6.9 },
+});
+terceiroRestaurante.order('coxinha');
+terceiroRestaurante.order('agua');
+terceiroRestaurante.order('coxinha');
+terceiroRestaurante.pay();
 
 module.exports = createMenu;
