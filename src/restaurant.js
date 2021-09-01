@@ -83,10 +83,10 @@ const createMenu = (obj) => {
   const retorno = {
     fetchMenu: () => obj,
     consumption: [],
-    order: function (consu) { this.consumption.push(consu); },
-    pay: function () {
-      const consuArray = this.consumption;
-      const menu = this.fetchMenu();
+    order: (consu) => { retorno.consumption.push(consu); },
+    pay: () => {
+      const consuArray = retorno.consumption;
+      const menu = retorno.fetchMenu();
       const { drinks } = menu;
       const drinksKeys = Object.keys(drinks);
       const { food } = menu;
