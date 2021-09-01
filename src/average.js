@@ -13,7 +13,11 @@
 */
 
 const average = (array) => {
-  if(array === 0 || array !== 'number'){
+  if (array === 0) {
+    return undefined;
+  }
+    
+  if (array !== 'number') {
     return undefined;
   }
 
@@ -23,8 +27,7 @@ const average = (array) => {
   }
 
   let results = Math.round(contador / array.length);
-  return results
-
-};
+  return results;
+  };
  
 module.exports = average;
