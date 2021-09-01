@@ -81,7 +81,13 @@
 const createMenu = (obj) => {
   const menu = {
     fetchMenu: () => obj,
-  }; 
+    consumption: [],
+    order(myOrder) {
+      this.consumption.push(myOrder);
+      return menu; 
+    },
+  };
+// if (!menu.consumption) { menu['consumption'] = []};
   return menu;
 };
 
