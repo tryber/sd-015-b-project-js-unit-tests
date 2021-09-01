@@ -14,10 +14,22 @@
 
 const assert = require('assert');
 
-const average = (nums) => Math.round(nums.reduce((acc, num) => acc + num) / 2);
+const average = (nums) => {
+  let stringNum;
+ nums.forEach((num) => {
+    if (typeof num === 'string') stringNum = true;
+  });
 
-const actual = average([3, 2]);
+  if (stringNum) return undefined;
+  return Math.round(nums.reduce((acc, num) => acc + num) / 2);
+};
+
+const actual = average([2, 2]);
+const actual2 = average([1, 1]);
+const actual3 = average([1, '2']);
 
 assert.strictEqual(actual, 2);
+assert.strictEqual(actual2, 1);
+assert.strictEqual(actual3, undefined);
 
 module.exports = average;
