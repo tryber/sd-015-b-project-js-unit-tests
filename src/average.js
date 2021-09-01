@@ -20,9 +20,8 @@ const average = (array) => {
   for (let i in array) {
     if (typeof array[i] !== 'number') {
       return undefined;
-    } else {
-      media += array[i];
     }
+    media += array[i];
   }
   return Math.round(media / array.length);
 };
