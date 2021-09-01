@@ -13,13 +13,20 @@
 */
 
 const average = (array) => {
+  // tamanho da array
+  const arraySize = array.lenght;
+  // condicao se array for vazia
+  if (arraySize === 0) { return undefined; }
   let soma = 0;
-  for (var i = 0; i < array.length; i += 1) {
+  for (let i = 0; i < arraySize; i += 1) {
+    // condicao se o valor da array nao for number
+    if (typeof array[i] !== 'number') {
+      return undefined;
+    }
     soma += array[i];
   }
-  let mediaInicial = soma / array.length;
-  let mediaFinal = Math.round(mediaInicial);
-  return mediaFinal;
+  // arredonda o resultado da media
+  return Math.round(soma / arraySize);
 };
 
 module.exports = average;
