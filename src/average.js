@@ -15,9 +15,9 @@
 const average = (array) => {
   let media = 0;
   let valor = 0;
-  console.log(array)
+  // console.log(array);
   if (array.length === 0) return undefined;
-  for (let index = 0; index < array.length; index = index+1) {
+  for (let index = 0; index < array.length; index = index + 1) {
     // Captura todos os valores depois retorna o total dividido pelo array.lenght
     if (typeof array[index] === 'number') {
       valor += array[index];
