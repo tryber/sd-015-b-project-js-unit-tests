@@ -14,14 +14,14 @@
     estudante.name // Retorna: 'Leandrão, o Lobo Solitário'
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
-
+const goodPerson = 'Eita pessoa boa!';
 const createStudent = (name) => {
   if (typeof name !== 'string') {
     return undefined;
   }
   let estudante = {
     name: `${name}`,
-    feedback: () => 'Eita pessoa boa!',
+    feedback: () => goodPerson,
   };
   return estudante;
 };
