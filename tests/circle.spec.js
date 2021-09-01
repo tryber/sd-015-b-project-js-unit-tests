@@ -44,5 +44,8 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     let testCircleRadius = Object.values(circle(3));
     assert.strictEqual(testCircleRadius[1], 28.259999999999998);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    let circuloRaio3 = { radius: 3, area: 28.259999999999998, circumference: 18.84 };
+    assert.deepStrictEqual(circle(3), circuloRaio3);
+
   });
 });
