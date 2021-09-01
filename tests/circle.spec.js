@@ -41,6 +41,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
       `${3 * 3 * 3.14}`
     );
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.strictEqual(circle(3).radius, 3);
+    assert.deepStrictEqual(Object.values(circle(3)), [3, 28.259999999999998, 18.84]);
   });
 });
