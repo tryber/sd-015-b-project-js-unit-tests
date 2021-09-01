@@ -17,7 +17,7 @@ const calculator = require('../src/objCalculator');
 
   Comportamento:
   calculator.add(1, 1) // Retorno: 2;
-  calculator.div(3, 2) // Retorno: 1;
+  calculator.div(3, 2) //  Retorno: 1;
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
