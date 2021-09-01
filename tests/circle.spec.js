@@ -37,6 +37,9 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
     assert.deepStrictEqual(circle(3).area.toPrecision(4), (3.14 * 3 * 3).toPrecision(4));
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.deepStrictEqual(Object.values(circle(3)), [3, (parseFloat((3.14 * 3 * 3).toPrecision(4))), parseFloat((2 * 3.14 * 3).toPrecision(4))]);
+    // Segundo a Joyce (mentora técnica), eu posso tratar algum dado antes de fazer os testes.
+    const circleValuesHandled = circle(3);
+    circleValuesHandled.area = parseFloat((circleValuesHandled.area).toFixed(2));
+    assert.deepStrictEqual(Object.values(circleValuesHandled), [3, (parseFloat((3.14 * 3 * 3).toPrecision(4))), parseFloat((2 * 3.14 * 3).toPrecision(4))]);
   });
 });
