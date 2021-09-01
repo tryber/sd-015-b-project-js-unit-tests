@@ -19,3 +19,5 @@ describe('8 - Implemente a função `myCounter`', () => {
     assert.deepStrictEqual(myCounter(), expectedOutput);
   });
 });
+
+
