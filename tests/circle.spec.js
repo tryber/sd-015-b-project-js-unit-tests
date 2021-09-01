@@ -25,13 +25,22 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
+    assert.strictEqual(typeof (circle(1)), 'object', 'ERROR: Return is not a object');
     // Teste se o objeto retornado tem 3 entradas.
+    const radiusOneEntries = Object.entries(circle(1));
+    assert.strictEqual(radiusOneEntries.length, 3, 'ERROR: Object entries !== 3');
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    assert.strictEqual(circle(), undefined, 'ERROR: Function running with an empty parameter')
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+    const radiusTwoEntries = Object.entries(circle(2));
+    assert.strictEqual(circle(2).circumference, parseFloat((2 * 3.14 * 2).toFixed(2)), 'ERROR: Incorrect circumference');
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+    assert.strictEqual(parseFloat(circle(3).area.toFixed(2)), parseFloat((3.14 * (3 * 3)).toFixed(2)), 'ERROR: Incorrect area');
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    assert.strictEqual(parseFloat(circle(3).area.toFixed(2)), parseFloat((3.14 * (3 * 3)).toFixed(2)), 'ERROR: Incorrect area');
+    assert.strictEqual(circle(3).circumference, parseFloat((2 * 3.14 * 3).toFixed(2)), 'ERROR: Circumference is not the expected');
+    assert.strictEqual(circle(3).radius, 3, 'ERROR: Incorrect radius');
   });
 });
