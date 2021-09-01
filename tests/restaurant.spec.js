@@ -82,6 +82,18 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
+    //// Verifica se a saída 'objetoRetornado.fetchMenu()' é realmente um objeto
+    actual = typeof createMenu(testMenu).fetchMenu();
+    expected = 'object';
+    assert.strictEqual(actual, expected);
+    //// Verifica se a saída 'objetoRetornado.fetchMenu()' não é um array
+    actual = Array.isArray(createMenu(testMenu).fetchMenu());
+    expected = false;
+    assert.strictEqual(actual, expected);
+    //// Verifica se a saída é um objecto com somente duas chaves food e drink
+    actual = Object.keys(createMenu(testMenu).fetchMenu()).sort();
+    expected = ['food', 'drink'].sort();
+    assert.deepStrictEqual(actual, expected);
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
