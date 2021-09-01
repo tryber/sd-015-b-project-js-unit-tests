@@ -28,18 +28,6 @@ const average = (numbers) => {
   }
 
   return Math.round(sum / numbers.length);
-
-  // for (let i = 0; i < arr.length; i += 1) {
-  //   if (typeof (arr[i]) !== 'number') {
-  //     value = undefined;
-  //     console.log(value);
-  //     return value;
-  //   }
-  //   value += arr[i];
-  // }
-  // const result = Math.round(value /= arr.length);
-  // console.log(result);
-  // return result;
 };
-average([]);
+
 module.exports = average;
