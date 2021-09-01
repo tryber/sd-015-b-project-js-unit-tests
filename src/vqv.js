@@ -23,5 +23,4 @@ const vqv = (nome, idade) => {
   }
   return undefined;
 };
-console.log(vqv());
 module.exports = vqv;
