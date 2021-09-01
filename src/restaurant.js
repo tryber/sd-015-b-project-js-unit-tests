@@ -84,6 +84,18 @@ const createMenu = (obj) => {
     fetchMenu: () => obj,
     consumption: [],
     order: (str) => output.consumption.push(str),
+    pay: () => {
+      const total = output.consumption.reduce((accumulated, current) => {
+        if (obj.food[current]) {
+          return accumulated + obj.food[current];
+        }
+        if (obj.drink[current]) {
+          return accumulated + obj.drink[current];
+        }
+        return accumulated;
+      }, 0);
+      return total;
+    },
   };
 
   return output;
