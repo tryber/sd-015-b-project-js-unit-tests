@@ -14,7 +14,7 @@
 
 const average = (array) => {
   // tamanho da array
-  const arraySize = array.lenght;
+  const arraySize = array.length;
   // condicao se array for vazia
   if (arraySize === 0) { return undefined; }
   let soma = 0;
