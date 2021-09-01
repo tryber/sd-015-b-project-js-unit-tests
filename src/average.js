@@ -20,11 +20,14 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] !== 'number') {
       result = undefined;
+      break;
+    } else {
+      sum += array[index];
+      result = Math.round(sum / array.length);
     }
-    sum += array[index];
-    result = Math.round(sum / array.length);
-  }    
+  }
+  console.log(result);    
   return result;
 };
-
+average([1, 2, 4, 5, '6', 9, 22]);
 module.exports = average;
