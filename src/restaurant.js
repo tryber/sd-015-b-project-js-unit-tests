@@ -86,6 +86,7 @@ const createMenu = (menu) => {
           total += menu[category][item];
         }
       }
+      total *= 1.1;
       return total;
     },
   };
