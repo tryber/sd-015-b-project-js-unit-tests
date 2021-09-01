@@ -19,6 +19,31 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
+const calculator = {
+  add: (num1, num2) => {
+    if (Number.isInteger(num1) === true && Number.isInteger(num2) === true) { // visto em: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
+      return num1 + num2;
+    }
+  },
+  mult: (num1, num2) => {
+    if (Number.isInteger(num1) === true && Number.isInteger(num2) === true) {
+      return num1 * num2;
+    }  
+  },
+  div: (num1, num2) => {
+    if (Number.isInteger(num1) === true && Number.isInteger(num2) === true) {
+      return Math.floor(num1 / num2); // visto em: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+    }  
+  },
+  sub: (num1, num2) => {
+    if (Number.isInteger(num1) === true && Number.isInteger(num2) === true) {
+      return num1 - num2;
+    }
+  },
+  };
+  console.log(calculator.add(1, 1));
+  console.log(calculator.mult(2, 1));
+  console.log(calculator.div(5, 2));
+  console.log(calculator.sub(1, 1));
 
 module.exports = calculator;
