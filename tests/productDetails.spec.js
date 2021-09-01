@@ -34,7 +34,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     let objFunction = productDetails('Alcool gel', 'Máscara');
-    let responseFunction  = Array.isArray(objFunction);
+    let responseFunction = Array.isArray(objFunction);
     assert.deepStrictEqual(responseFunction, true);
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.
