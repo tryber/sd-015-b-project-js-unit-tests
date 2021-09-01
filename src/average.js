@@ -15,15 +15,15 @@
 // primeiro commit
 
 const average = (array) => {
-  let num = 0;
-  for (let index = 0; index < array.lenght; index += 1) {
+  let sum = 0;
+  for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') {
-      num = undefined;
-      return num;
+      sum = undefined;
+      return sum;
     }
-    num += array[index];
+    sum += array[index]
   }
-  return Math.round(num / array.lenght);
+ reurn Math.round(sum / arraylength);
 };
 
-module.exports = average;
+module.exports = average
