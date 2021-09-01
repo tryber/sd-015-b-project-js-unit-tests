@@ -54,7 +54,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
-    const objetoRetornado = createMenu();
+    let objetoRetornado = createMenu();
     assert.strictEqual(typeof objetoRetornado.fetchMenu, 'function');
 
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
@@ -63,6 +63,9 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
+    objetoRetornado = createMenu({food: {}, drink: {}});
+    assert.deepStrictEqual(objetoRetornado.fetchMenu(), {food: {}, drink: {}});
+
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
