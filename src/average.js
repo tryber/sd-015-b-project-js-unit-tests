@@ -12,6 +12,16 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
-
+const average = (a) => {
+  let sum = 0;
+  let arrayAverage = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    if (typeof a[i] !== 'number') return undefined;
+    sum += a[i];
+  }
+  arrayAverage = Math.round(sum / a.length);
+  if (Number.isNaN(arrayAverage) === true) return undefined;
+  console.log(arrayAverage);
+  return arrayAverage;
+};
 module.exports = average;
