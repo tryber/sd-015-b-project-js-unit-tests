@@ -17,7 +17,7 @@ const average = (array) => {
   let valor = 0;
   for (let index = 0; index < array.length; index = index+1) {
     // Captura todos os valores depois retorna o total dividido pelo array.lenght
-    if (typeof array[index] === 'number')) {
+    if (typeof array[index] === 'number') {
       valor += array[index];
     } else {
       return undefined;
