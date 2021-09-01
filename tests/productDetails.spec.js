@@ -30,12 +30,35 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    assert.fail();
+    // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+
     // Teste que o retorno da função é um array.
+
+    const expected = productDetails('Alcool gel', 'Máscara');
+    assert.deepStrictEqual(Array.isArray(expected), true);
+
     // Teste que o array retornado pela função contém dois itens dentro.
+
+    assert.strictEqual(expected.length, 2);
+
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+
+    assert.deepStrictEqual(typeof expected, 'object');
+
     // Teste que os dois objetos são diferentes entre si.
+
+    assert.notDeepStrictEqual(expected[0], expected[1]);
+
     // Teste que os dois productIds terminam com 123.
+
+    const productIdOne = expected[0].details.productId;
+    const productIdTwo = expected[1].details.productId;
+
+    const productSliceOne = productIdOne.slice(-3);
+    const productSliceTwo = productIdTwo.slice(-3);
+
+    assert.strictEqual(productSliceOne, productSliceTwo);
+    
   });
 });
