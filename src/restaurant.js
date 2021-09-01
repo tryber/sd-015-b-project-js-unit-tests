@@ -20,7 +20,7 @@ const createMenu = (menu) => {
         let index = names.indexOf(i);
         sum += values[index];
       }
-      return sum * 1.1;
+      return parseFloat((sum * 1.1).toFixed(2));
     },
   };
   return object;
