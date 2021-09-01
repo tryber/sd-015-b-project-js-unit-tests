@@ -13,17 +13,18 @@
 */
 
 const average = (array) => {
+  const numbers = Object.values(array);
   let sumOfArray = 0;
   let averageOfArray = 0;
   let result;
 
-  for (let i = 0; i < array.length; i += 1) {
-    if (typeof array[i] === 'string' || array.length === 0) {
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (typeof numbers[i] === 'string' || numbers.length === 0) {
       result = undefined;
       break;
     } else {
-      sumOfArray = array[i] + sumOfArray;
-      averageOfArray = sumOfArray / array.length;
+      sumOfArray = numbers[i] + sumOfArray;
+      averageOfArray = sumOfArray / numbers.length;
       result = (Math.round(averageOfArray));
     }
   }
