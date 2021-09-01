@@ -125,3 +125,7 @@ assert.strictEqual(actual, expected);
 actual = Object.keys(createMenu(testMenu).fetchMenu()).sort();
 expected = ['food', 'drink'].sort();
 assert.deepStrictEqual(actual, expected);
+//// Verifica se a saída objetoRetornado.fetchMenu() é igual ao menu de entrada
+actual = createMenu(testMenu).fetchMenu();
+expected = testMenu;
+assert.deepStrictEqual(actual, expected);

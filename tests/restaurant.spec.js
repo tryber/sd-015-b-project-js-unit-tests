@@ -100,6 +100,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
+    //// Verifica se a saída objetoRetornado.fetchMenu() é igual ao menu de entrada
+    actual = createMenu(testMenu).fetchMenu();
+    expected = testMenu;
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
