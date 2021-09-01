@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
+const { parse } = require('path');
 const circle = require('../src/circle');
 
 /*
@@ -25,7 +26,6 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     // Teste se o objeto retornado tem 3 entradas.
@@ -33,5 +33,20 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    const error = 'Opa!, deu erro!';
+    assert.strictEqual(typeof circle(1), 'object', error);
+    assert.strictEqual(Object.entries(circle(1)).length, 3, error);
+    assert.strictEqual(circle(), undefined, error);
+    assert.deepStrictEqual(circle(2).circumference, 12.56, error);
+    const aux = parseFloat(circle(3).area.toPrecision(2));
+    assert.deepStrictEqual(aux, 28, error);
+    const aux1 = circle(3);
+    aux1.area = parseFloat((aux1.area).toPrecision(4));
+    const aux2 = {
+      radius: 3,
+      area: 28.26,
+      circumference: 18.84,
+    };
+    assert.deepStrictEqual(aux1, aux2);
   });
 });
