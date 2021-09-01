@@ -17,7 +17,7 @@
 */
 
 const vqv = (nome, idade) => {
-  if (typeof nome === 'undefined' || typeof idade === 'undefined') {
+  if (!nome || !idade) {
     return undefined;
   }
 
