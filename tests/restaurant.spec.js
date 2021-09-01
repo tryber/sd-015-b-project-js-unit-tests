@@ -82,10 +82,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
     // ```
-    // input = { food: {'coxinha': 3.9, 'sopa': 9.9, 'sashimi': 8.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
-    // output = createMenu(input);
-    // output.order('coxinha');
-    // assert.deepStrictEqual(output.consumption, ['coxinha']);
+    input = { food: {'coxinha': 3.9, 'sopa': 9.9, 'sashimi': 8.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+    output = createMenu(input);
+    output.order('coxinha');
+    assert.deepStrictEqual(output.consumption, ['coxinha']);
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
