@@ -16,6 +16,17 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {};
-
+const vqv = (param1, param2) => {
+  let txt = '';
+  let nome = param1;
+  let idade = param2;
+  if (nome && idade) {
+  txt = `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
+    return txt;
+  }
+  return undefined;
+};
 module.exports = vqv;
