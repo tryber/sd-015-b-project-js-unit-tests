@@ -21,12 +21,14 @@
 
 const calculator = (num1, num2) => { 
   const object = {
-    add: (num1, num2) => num1 + num2,
-    mult: (num1, num2) => num1 * num2,
-    div: (num1, num2) => num1 / num2,
-    sub: (num1, num2) => num1 - num2,
+    add: num1 + num2,
+    mult: num1 * num2,
+    div: num1 / num2,
+    sub: num1 - num2,
   };
   return object;
 };
+
+console.log(calculator(1, 2).add);
 
 module.exports = calculator;
