@@ -40,6 +40,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     let tamanhoArray = objFunction.length;
     assert.strictEqual(tamanhoArray, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
+    assert.deepStrictEqual(typeof(objFunction[0]) === 'object', true);
+    assert.deepStrictEqual(typeof(objFunction[1]) === 'object', true);
     // Teste que os dois objetos são diferentes entre si.
     // Teste que os dois productIds terminam com 123.
   });
