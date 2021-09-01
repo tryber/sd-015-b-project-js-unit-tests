@@ -48,6 +48,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     const funcao4 = circle(3);
     funcao4.area = expected3;
     const expected4 = {radius: 3, area:28.26, circumference: 18.84}
-    assert.strictEqual(funcao4, expected4);
+    assert.deepStrictEqual(funcao4, expected4);
   });
 });
