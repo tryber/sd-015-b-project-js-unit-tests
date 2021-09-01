@@ -13,12 +13,13 @@
 */
 const somar = (array) => {
   let soma = 0;
-    for (let i = 0; i <= array.length; i += 1) {
+    for (let i = 0; i < array.length; i += 1) {
     soma += array[i];
     }
+    console.log(soma);
   return soma;
 };
-
+somar([3, 4, 5]);
 const average = (array) => {
   if (array.length === 0) {
     return undefined;
