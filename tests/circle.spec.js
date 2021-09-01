@@ -40,14 +40,20 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
     const PI = 3.14;
     output = circle(2);
-    let circumference = parseFloat((2 * PI * 2).toFixed(2));
+    const circumference = parseFloat((2 * PI * 2).toFixed(2));
     assert.strictEqual(output.circumference, circumference);
 
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
     output = circle(3);
-    let area = PI * 3 * 3;
+    const area = PI * 3 * 3;
     assert.strictEqual(output.area, area);
 
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    const data = {
+      radius: 3,
+      area: PI * 3 * 3,
+      circumference: 2 * PI * 3
+    }
+    assert.deepStrictEqual(output, data);
   });
 });
