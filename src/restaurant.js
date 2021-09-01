@@ -156,3 +156,12 @@ actual.order('coxinha');
 actual = actual.consumption;
 expected = ['coxinha'];
 assert.deepStrictEqual(actual, expected);
+//// Verifica se ao acrescentar 4 itens eles preenchiram o objetoRetornado.consumption
+actual = createMenu(testMenu);;
+actual.order('coxinha');
+actual.order('agua');
+actual.order('sopa');
+actual.order('sashimi');
+actual = actual.consumption;
+expected = ["coxinha", "agua", "sopa", "sashimi"];
+assert.deepStrictEqual(actual, expected);
