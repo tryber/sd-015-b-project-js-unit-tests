@@ -11,6 +11,7 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+// adicionando comentário coonforme passo 4
 
 const average = () => {};
 
