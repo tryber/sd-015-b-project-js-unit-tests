@@ -46,13 +46,40 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    const semParametro = getCharacter();
+    assert.deepStrictEqual(semParametro, undefined, 'Não está retornando undefined') 
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    const parametroArya = getCharacter('Arya');
+    const retornoEsperadoArya = {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: [ 'Not today', 'A girl has no name.' ]
+    };
+    assert.deepStrictEqual(parametroArya, retornoEsperadoArya, 'Retorno para Arya inválido');
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    const parametroBrienne = getCharacter('Brienne');
+    const retornoEsperadoBrienne = {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+    };
+    assert.deepStrictEqual(parametroBrienne, retornoEsperadoBrienne, 'Retorno para Brienne inválido');
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    const parametroMelissandre = getCharacter('Melissandre');
+    const retornoEsperadoMelissandre = {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    };
+    assert.deepStrictEqual(parametroMelissandre, retornoEsperadoMelissandre, 'Retorno para Melissandre inválido');
     // Teste se a função se os parâmetros não são Case Sensitive.
+    const parametroMelissandreLower = getCharacter('melissandre');
+    const parametroMelissandreUpper = getCharacter('MELISSANDRE');
+    assert.deepStrictEqual(parametroMelissandreLower, parametroMelissandreUpper, 'É case sensitive!');
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    const parametroMarcao = getCharacter('Marcão');
+    assert.deepStrictEqual(parametroMarcao, undefined, 'Não está retornando undefined ao passar nome inválido!');
   });
 });
