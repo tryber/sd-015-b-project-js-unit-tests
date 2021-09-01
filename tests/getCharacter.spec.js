@@ -46,13 +46,60 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
+    // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    const characters = {
+      arya: {
+        name: 'Arya Stark',
+        class: 'Rogue',
+        phrases: ['Not today', 'A girl has no name.'],
+      },
+      brienne: {
+        name: 'Brienne Tarth',
+        class: 'Knight',
+        phrases: [
+          'Im No Lady, Your Grace.',
+          'I, Brienne Of Tarth, Sentence You To Die.',
+        ],
+      },
+      melissandre: {
+        name: 'Melissandre',
+        class: 'Necromancer',
+        phrases: [
+          'Death By Fire Is The Purest Death.',
+          'For The Night Is Dark And Full Of Terrors.',
+        ],
+      },
+    };
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+
+    const expect = getCharacter();
+    assert.deepStrictEqual(expect, undefined);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+
+    const expect2 = getCharacter('Arya');
+    assert.deepStrictEqual(expect2, characters.arya);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+
+    const expect3 = getCharacter('Brienne');
+    assert.deepStrictEqual(expect3, characters.brienne);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+
+    const expect4 = getCharacter('Melissandre');
+    assert.deepStrictEqual(expect4, characters.melissandre);
+
     // Teste se a função se os parâmetros não são Case Sensitive.
+
+    const caseOne = getCharacter('Arya');
+    const caseTwo = getCharacter('arya');
+    assert.deepStrictEqual(caseOne, caseTwo);
+
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+
+    const expect6 = getCharacter('Goku');
+    assert.deepStrictEqual(expect6, undefined);
   });
 });
