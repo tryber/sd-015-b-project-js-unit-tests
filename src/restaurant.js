@@ -81,9 +81,11 @@
 
 const createMenu = (menu) => {
   const object = {
-    firstKey: null,
     fetchMenu: () => menu,
     consumption: [],
+    order: function (str) {
+      return this.consumption.push(str);
+    },
   };
   return object;
 };
@@ -138,3 +140,17 @@ assert.strictEqual(actual, expected);
 actual = createMenu(testMenu).consumption.length;
 expected = 0;
 assert.strictEqual(actual, expected);
+//// Verifica se o objetoRetornado possui a chave order
+actual = Object.keys(createMenu(testMenu)).indexOf('order');
+expected = -1;
+assert.notStrictEqual(actual, expected);
+//// Verifica se o objetoRetornado.order é realmente uma função
+actual = typeof createMenu(testMenu).order;
+expected = 'function';
+assert.strictEqual(actual, expected);
+//// Verifica se a objetoRetornado.order(str) adiciona str em objetoRetornado.consumption
+actual = createMenu(testMenu);
+actual.order('coxinha');
+actual = actual.consumption;
+expected = ['coxinha'];
+assert.deepStrictEqual(actual, expected);

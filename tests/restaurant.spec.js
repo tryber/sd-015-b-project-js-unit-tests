@@ -128,6 +128,20 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
+    //// Verifica se o objetoRetornado possui a chave order
+    actual = Object.keys(createMenu(testMenu)).indexOf('order');
+    expected = -1;
+    assert.notStrictEqual(actual, expected);
+    //// Verifica se o objetoRetornado.order é realmente uma função
+    actual = typeof createMenu(testMenu).order;
+    expected = 'function';
+    assert.strictEqual(actual, expected);
+    //// Verifica se a objetoRetornado.order(str) adiciona str em objetoRetornado.consumption
+    actual = createMenu(testMenu);
+    actual.order('coxinha');
+    actual = actual.consumption;
+    expected = ['coxinha'];
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
