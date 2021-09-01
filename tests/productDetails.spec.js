@@ -45,5 +45,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.notStrictEqual(objFunction[0] === objFunction[1], true); // Retornar true, significa que a verificação que não sao exatamente iguais é verdadeira.
     // Teste que os dois productIds terminam com 123.
+    let obj1 = objFunction[0].details.productId.includes('123');
+    let obj2 = objFunction[1].details.productId.includes('123');
+    assert.strictEqual((obj1 && obj2), true);
   });
 });
