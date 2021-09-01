@@ -14,10 +14,10 @@
 
 const average = (array) => {
   let soma = 0
-  for(let index = 0; index <= soma.lenght; index += 1) {
+  for(let index = 0; index <= array.lenght; index += 1) {
     soma = soma + array[index]
   };
-  return math.round(soma / array.lenght)
+  return soma / array.lenght;
 };
 
 module.exports = average;
