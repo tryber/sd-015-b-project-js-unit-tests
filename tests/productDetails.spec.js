@@ -38,8 +38,10 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     // Teste que os dois productIds terminam com 123.
 
-    const actual = productDetails('string', 'string2')
+    const actual = productDetails('Boné', 'Toca')
+    const actual2 = productDetails('Banana', 'Maca')
 
     assert.strictEqual(typeof actual, 'array')
+    assert.strictEqual()
   });
 });

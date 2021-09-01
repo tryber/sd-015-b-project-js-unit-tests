@@ -15,20 +15,13 @@ const assert = require('assert');
 
 const average = (nums) => {
   let stringNum;
+  let sum = 0;
  nums.forEach((num) => {
     if (typeof num === 'string') stringNum = true;
+    sum += num;
   });
-
   if (stringNum || !nums.length) return undefined;
-  return Math.round(nums.reduce((acc, num) => acc + num) / nums.length);
+  return Math.round(sum / nums.length);
 };
-
-const actual = average([2, 2]);
-const actual2 = average([1, 1]);
-const actual3 = average([1, '2']);
-
-assert.strictEqual(actual, 2);
-assert.strictEqual(actual2, 1);
-assert.strictEqual(actual3, undefined);
 
 module.exports = average;
