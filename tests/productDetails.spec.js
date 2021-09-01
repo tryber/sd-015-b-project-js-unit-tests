@@ -1,3 +1,4 @@
+const { AssertionError } = require('assert');
 const assert = require('assert');
 const { type } = require('os');
 const productDetails = require('../src/productDetails');
@@ -38,10 +39,16 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     // Teste que os dois productIds terminam com 123.
 
-    const actual = productDetails('Boné', 'Toca')
+    const actual = productDetails('String', 'string2')
     const actual2 = productDetails('Banana', 'Maca')
 
-    assert.strictEqual(typeof actual, 'array')
-    assert.strictEqual()
+    const regex = /[a-z0-9]123$/
+    assert.strictEqual(Array.isArray(actual), true)
+    assert.strictEqual(actual2.length, 2)
+    assert.strictEqual(typeof actual2[0], 'object')
+    assert.strictEqual(typeof actual2[1], 'object')
+    assert.notStrictEqual(actual2[0], actual2[1])
+    assert.strictEqual(actual2[0].details.productId, 'Banana123')
+    assert.strictEqual(actual2[1].details.productId, 'Maca123')
   });
 });
