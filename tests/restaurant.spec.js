@@ -111,6 +111,14 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: []
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
+    //// Verifica que o objetoRetornado.consumption é um array
+    actual = Array.isArray(createMenu(testMenu).consumption);
+    expected = true;
+    assert.strictEqual(actual, expected);
+    //// Verifica se o array de retorno é vazio
+    actual = createMenu(testMenu).consumption.length;
+    expected = 0;
+    assert.strictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption

@@ -83,6 +83,7 @@ const createMenu = (menu) => {
   const object = {
     firstKey: null,
     fetchMenu: () => menu,
+    consumption: [],
   };
   return object;
 };
@@ -129,3 +130,11 @@ assert.deepStrictEqual(actual, expected);
 actual = createMenu(testMenu).fetchMenu();
 expected = testMenu;
 assert.deepStrictEqual(actual, expected);
+//// Verifica que o objetoRetornado.consumption é um array
+actual = Array.isArray(createMenu(testMenu).consumption);
+expected = true;
+assert.strictEqual(actual, expected);
+//// Verifica se o array de retorno é vazio
+actual = createMenu(testMenu).consumption.length;
+expected = 0;
+assert.strictEqual(actual, expected);
