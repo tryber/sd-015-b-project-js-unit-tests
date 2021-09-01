@@ -21,7 +21,7 @@ const vqv = (nome, idade) => {
     return undefined;
   }
   const grettings = `Oi, meu nome é ${nome}!
-  Tenhos ${idade},
+  Tenho ${idade} anos,
   trabalho na Trybe e mando muito em programação!
   #VQV!`;
   return grettings;
