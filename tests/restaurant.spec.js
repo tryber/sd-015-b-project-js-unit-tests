@@ -91,29 +91,32 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
-    // output.order('coxinha');
-    // output.order('agua');
-    // output.order('sopa');
-    // output.order('sashimi');
-    // assert.deepStrictEqual(output.consumption, ['coxinha', 'agua', 'sopa', 'sashimi'])
+    output = createMenu(input);
+    output.order('coxinha');
+    output.order('agua');
+    output.order('sopa');
+    output.order('sashimi');
+    assert.deepStrictEqual(output.consumption, ['coxinha', 'agua', 'sopa', 'sashimi'])
     // ```
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
-    // output.order('coxinha');
-    // output.order('agua');
-    // output.order('coxinha');
-    // assert.deepStrictEqual(output.consumption, ['coxinha', 'agua', 'coxinha']) // Retorno: ['coxinha', 'agua', 'coxinha']
+    output = createMenu(input);
+    output.order('coxinha');
+    output.order('agua');
+    output.order('coxinha');
+    assert.deepStrictEqual(output.consumption, ['coxinha', 'agua', 'coxinha']) // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.order('agua');
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
+    output = createMenu(input);
+    output.order('coxinha');
+    output.order('agua');
+    output.order('coxinha');
+    output.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
