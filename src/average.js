@@ -14,6 +14,16 @@
 
 // primeiro commit
 
-const average = () => {};
+const average = (array) => {
+  let num = 0;
+  for (let index = 0; index < array.lenght; index += 1) {
+    if (typeof (array[index]) !== 'number') {
+      num = undefined;
+      return num;
+    }
+    num += array[index];
+  }
+  return Math.round(num / array.lenght);
+};
 
 module.exports = average;
