@@ -28,8 +28,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    const output = circle(1);
-    assert.deepStrictEqual(output, { area: 3.14, circumference: 6.28, radius:1 });
+    assert.deepStrictEqual(circle(1), { area: 3.14, circumference: 6.28, radius:1 });
     // Teste se o objeto retornado tem 3 entradas.
     const entries = Object.entries(circle(1));
     assert.deepStrictEqual(entries.length, 3);
