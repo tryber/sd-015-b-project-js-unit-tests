@@ -31,7 +31,7 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste se circle retorna um objeto.
     let fCircle = circle(30);
     let objeto = { radius: 30, area: 2826, circumference: 188.4 };
-    assert.notStrictEqual(fCircle, objeto);
+    assert.deepStrictEqual(fCircle, objeto);
     // Teste se o objeto retornado tem 3 entradas.
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
