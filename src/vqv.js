@@ -17,9 +17,9 @@
 */
 
 const vqv = (nome, idade) => (!nome || !idade ? undefined : `Oi, meu nome é ${nome}!
-  Tenho ${idade} anos,
-  trabalho na Trybe e mando muito em programação!
-  #VQV!`);
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`);
 
 console.log(vqv());
 
