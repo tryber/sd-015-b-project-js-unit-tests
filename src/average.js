@@ -15,7 +15,7 @@
 const average = (array) => {
   let soma = 0;
   let tamanho = array.length;
-  if (tamanho === 0) {git a
+  if (tamanho === 0) {
     return undefined;
   }
   for (let numeros of array) {
