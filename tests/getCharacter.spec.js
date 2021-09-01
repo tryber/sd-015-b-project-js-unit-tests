@@ -46,13 +46,53 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    const characters = {
+      arya: {
+        name: 'Arya Stark',
+        class: 'Rogue',
+        phrases: ['Not today', 'A girl has no name.'],
+      },
+      brienne: {
+        name: 'Brienne Tarth',
+        class: 'Knight',
+        phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+      },
+      melissandre: {
+        name: 'Melissandre',
+        class: 'Necromancer',
+        phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+      },
+    };
+
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    let input = '';
+    let output = getCharacter(input);
+    assert.strictEqual(output, undefined);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    input = 'Arya';
+    output = getCharacter(input);
+    assert.deepStrictEqual(output, characters.arya);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    input = 'Brienne';
+    output = getCharacter(input);
+    assert.deepStrictEqual(output, characters.brienne);
+
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    input = 'Melissandre';
+    output = getCharacter(input);
+    assert.deepStrictEqual(output, characters.melissandre);
+
     // Teste se a função se os parâmetros não são Case Sensitive.
+    input = 'melissANDRE';
+    output = getCharacter(input);
+    assert.deepStrictEqual(output, characters.melissandre);
+
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    input = '3-gatsu';
+    output = getCharacter(input);
+    assert.deepStrictEqual(output, undefined);
   });
 });
