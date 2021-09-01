@@ -15,18 +15,18 @@
 const average = (numbers) => {
   let numbersAverage = 0;
   let count = 0;
-  if(numbers.length === 0) {
+  if (numbers.length === 0) {
     return undefined;
   }
-  for(let i = 0; i < numbers.length; i ++) {
-    if(typeof numbers[i] === 'string'){
-      return undefined;
-    } else {
+  for (let i = 0; i < numbers.length; i += 1) {
+    if (typeof numbers[i] !== 'string') {
       numbersAverage += numbers[i];
-    count ++;
+      count += 1;
+    } else {
+      return undefined;
     }
   }
-  return Math.round(numbersAverage/count);
+  return Math.round(numbersAverage / count);
 };
 
 let test = [];
