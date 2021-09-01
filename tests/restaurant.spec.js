@@ -116,7 +116,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     output.order('coxinha');
     output.order('agua');
     output.order('coxinha');
-    output.pay() // Retorno: somaDosPreçosDosPedidos
+    assert.strictEqual(output.pay(), 11.7) // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });

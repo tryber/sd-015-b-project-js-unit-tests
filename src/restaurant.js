@@ -84,7 +84,20 @@ const createMenu = (obj) => {
     fetchMenu: () => obj,
     consumption: [],
     order: (str) => menu.consumption.push(str),
-  }
+    pay: () => {
+      const array = Object.entries(obj);
+      const fullMenu = { ...array[0][1], ...array[1][1] };
+
+      let ordered = [];
+      for (let item of menu.consumption) ordered.push(fullMenu[item]);
+
+      const reducer = (a, b) => a + b;
+      const total = ordered.reduce(reducer);
+      menu.consumption = [];
+
+      return total;
+    },
+  };
 
   return menu;
 };
