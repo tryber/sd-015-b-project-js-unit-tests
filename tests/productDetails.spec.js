@@ -42,7 +42,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     const actual = productDetails('String', 'string2')
     const actual2 = productDetails('Banana', 'Maca')
 
-    const regex = /[a-z0-9]123$/
     assert.strictEqual(Array.isArray(actual), true)
     assert.strictEqual(actual2.length, 2)
     assert.strictEqual(typeof actual2[0], 'object')
