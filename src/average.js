@@ -20,8 +20,8 @@ const average = (nums) => {
     if (typeof num === 'string') stringNum = true;
   });
 
-  if (stringNum) return undefined;
-  return Math.round(nums.reduce((acc, num) => acc + num) / 2);
+  if (stringNum || !nums.length) return undefined;
+  return Math.round(nums.reduce((acc, num) => acc + num) / nums.length);
 };
 
 const actual = average([2, 2]);
