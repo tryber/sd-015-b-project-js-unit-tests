@@ -23,7 +23,7 @@ const circle = require('../src/circle');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('#circle', () => {
+describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
@@ -40,7 +40,7 @@ describe('#circle', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     const area = parseFloat(circle(3).area.toPrecision(4));
     const circumference = parseFloat(circle(3).circumference.toPrecision(4));
-    assert.strictEqual((circle(3).radius === 3 && area === 28.26 && circumference === 18.84), (circle(3).radius === 3 && area === 28.26 && circumference === 18.84 === true));
+    assert.strictEqual((circle(3).radius === 3 && area === 28.26 && circumference === 18.84), (circle(3).radius === 3 && area === 28.26 && circumference === 18.84) === true);
 
   });
 });
