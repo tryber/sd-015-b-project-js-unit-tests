@@ -130,7 +130,12 @@ describe("10 - Implemente os casos de teste e a função `createMenu`", () => {
       food: {coxinha: 2, sanduiche: 3},
       drinks: {agua: 2, cerveja: 3},
     });
-    assert.strictEqual(returnedObj2.pay(), 11);
+    returnedObj2.order("coxinha");
+    returnedObj2.order("agua");
+    returnedObj2.order("coxinha");
+    returnedObj2.pay();
+
+    assert.strictEqual(returnedObj2.pay(), 6.6);
     
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });

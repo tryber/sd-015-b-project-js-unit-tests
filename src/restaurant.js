@@ -80,14 +80,13 @@ const createMenu = (menu) => {
     pay: () => {
       let total = 0;
       const categories = Object.keys(menu);
-      for (let category of categories) {
-        const orderedItems = Object.keys(menu[category]);
-        for (let item of orderedItems) {
-          total += menu[category][item];
+      for (let orderedItem of orders) {
+        for (let category of categories) {
+          total += menu[category][orderedItem] || 0;
         }
       }
       total *= 1.1;
-      return total;
+      return Number(total.toFixed(1));
     },
   };
 };
