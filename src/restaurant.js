@@ -89,11 +89,14 @@ const createMenu = (obj) => {
         if (obj.food[current]) {
           return accumulated + obj.food[current];
         }
+
         if (obj.drink[current]) {
           return accumulated + obj.drink[current];
         }
+
         return accumulated;
       }, 0);
+      
       return total;
     },
   };
