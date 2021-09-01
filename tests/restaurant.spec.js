@@ -197,7 +197,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     actual.order('agua');
     actual.order('coxinha');
     actual = actual.pay();
-    expected = 11.7;
+    expected = 12.87;
     assert.strictEqual(actual, expected);
   });
 });
