@@ -6,8 +6,8 @@ const createMenu = (menu) => {
   const object = {
     fetchMenu: () => menu,
     consumption: [],
-    order: function (str) { orderFromMenu.call(this, str); },
-    pay: function () {
+    order(str) { orderFromMenu.call(this, str); },
+    pay() {
       const order = this.consumption;
       const foodNames = Object.keys(this.fetchMenu().food);
       const drinkNames = Object.keys(this.fetchMenu().drink);
