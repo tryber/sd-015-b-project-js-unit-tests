@@ -28,8 +28,16 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
+    const entrada = circle(1, 2);
+    const tipo = typeof entrada;
+    const objeto = typeof {}
+    assert.deepStrictEqual(tipo, objeto, 'Não está retornando um objeto' )
     // Teste se o objeto retornado tem 3 entradas.
+
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    const zerado = cicle();
+    const undefined = undefined;
+    assert.deepStrictEqual(zerado, undefined, 'Não está retornando undefined ao não receber valor!')
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
