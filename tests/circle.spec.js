@@ -38,6 +38,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.deepStrictEqual(circle(), undefined);
     assert.deepStrictEqual(circle(2).circumference, 2*3.14*2);
     assert.deepStrictEqual(parseFloat(circle(3).area).toPrecision(4), '28.26');
-    assert.deepStrictEqual(parseFloat(circle(3).radius).toPrecision(1), '3');
+    assert.deepStrictEqual(Object.values(circle(3)), [3, 28.259999999999998, 18.84]);
   });
 });
