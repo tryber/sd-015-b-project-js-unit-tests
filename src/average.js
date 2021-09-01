@@ -21,9 +21,9 @@ const average = (array) => {
       sum = undefined;
       return sum;
     }
-    sum += array[index]
+    sum += array[index];
   }
- reurn Math.round(sum / arraylength);
+ return Math.round(sum / array.length);
 };
 
-module.exports = average
+module.exports = average;
