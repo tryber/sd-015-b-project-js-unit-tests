@@ -42,8 +42,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     assert.deepStrictEqual(typeof(objFunction[0]) === 'object', true);
     assert.deepStrictEqual(typeof(objFunction[1]) === 'object', true);
-    assert.notStrictEqual(objFunction[0] === objFunction[1], true); // Retornar true, significa que a verificação que não sao exatamente iguais é verdadeira.
     // Teste que os dois objetos são diferentes entre si.
+    assert.notStrictEqual(objFunction[0] === objFunction[1], true); // Retornar true, significa que a verificação que não sao exatamente iguais é verdadeira.
     // Teste que os dois productIds terminam com 123.
   });
 });
