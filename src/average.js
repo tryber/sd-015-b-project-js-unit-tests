@@ -1,3 +1,5 @@
+/* eslint-disable sonarjs/no-duplicated-branches */
+/* eslint-disable no-else-return */
 /* eslint-disable complexity */
 /* eslint-disable no-unused-expressions */
 /*
@@ -17,26 +19,19 @@
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const average = (a) => {
 const array = a;
-if (array.length === 0) {
-return undefined;
-}
 let soma = 0;
-let arrayNumericoNãoVazio = true;
 for (let i = 0; i < array.length; i += 1) {
-    soma += array[i];
-if (typeof a[i] !== 'number') {
-arrayNumericoNãoVazio = false;
-}  
+  soma += array[i];
+  if (typeof array[i] !== 'number') { 
+  return undefined;
+}
 }
 const media = soma / array.length;
 const mediaArredonada = Math.round(media);
-if (arrayNumericoNãoVazio === true) {
-return mediaArredonada;
-} 
-if (arrayNumericoNãoVazio === false) {
-return undefined;
+if (array.length === 0) {
+return undefined; 
 }
+return mediaArredonada;
 };
-
-console.log(average([1, 1]));
+console.log(average(['2', 1]));
 module.exports = average;
