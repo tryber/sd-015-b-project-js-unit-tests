@@ -88,88 +88,23 @@ const createMenu = (menu) => {
     fetchMenu: () => menu,
     consumption: [],
     order: function (str) {orderFromMenu.call(this, str)},
+    pay: function () {
+      const order = this.consumption;
+      const foodNames = Object.keys(this.fetchMenu().food);
+      const drinkNames = Object.keys(this.fetchMenu().drink);
+      const foodValues = Object.values(this.fetchMenu().food);
+      const drinkValues = Object.values(this.fetchMenu().drink);
+      const names = foodNames.concat(drinkNames);
+      const values = foodValues.concat(drinkValues);
+      let sum = 0;
+      for (let i of order) {
+        let index = names.indexOf(i);
+        sum += values[index];
+      }
+      return sum;
+    }
   };
   return object;
 };
 
 module.exports = createMenu;
-const assert = require('assert');
-
-let expected;
-let actual;
-const testMenu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
-//// Verifica se a saida é ou um objeto
-actual = typeof createMenu(testMenu);
-expected = 'object';
-assert.deepStrictEqual(actual, expected);
-//// Verifica se a saida não é um array
-actual = Array.isArray(createMenu(testMenu));
-expected = false;
-assert.strictEqual(actual, expected);
-//// Verifica se dentro do objeto de saída há uma chave chamada fetchMenu
-actual = Object.keys(createMenu(testMenu)).indexOf('fetchMenu');
-expected = -1;
-assert.notStrictEqual(actual, expected);
-//// Verifica se a chave fetchMenu é uma função
-actual = typeof createMenu(testMenu).fetchMenu;
-expected = 'function';
-assert.strictEqual(actual, expected);
-//// Verifica se dentro do objeto de saída so tem uma chave
-actual = Object.keys(createMenu(testMenu)).length;
-expected = 1;
-assert.notStrictEqual(actual, expected);
-//// Verifica se a saída 'objetoRetornado.fetchMenu()' é realmente um objeto
-actual = typeof createMenu(testMenu).fetchMenu();
-expected = 'object';
-assert.strictEqual(actual, expected);
-//// Verifica se a saída 'objetoRetornado.fetchMenu()' não é um array
-actual = Array.isArray(createMenu(testMenu).fetchMenu());
-expected = false;
-assert.strictEqual(actual, expected);
-//// Verifica se a saída é um objecto com somente duas chaves food e drink
-actual = Object.keys(createMenu(testMenu).fetchMenu()).sort();
-expected = ['food', 'drink'].sort();
-assert.deepStrictEqual(actual, expected);
-//// Verifica se a saída objetoRetornado.fetchMenu() é igual ao menu de entrada
-actual = createMenu(testMenu).fetchMenu();
-expected = testMenu;
-assert.deepStrictEqual(actual, expected);
-//// Verifica que o objetoRetornado.consumption é um array
-actual = Array.isArray(createMenu(testMenu).consumption);
-expected = true;
-assert.strictEqual(actual, expected);
-//// Verifica se o array de retorno é vazio
-actual = createMenu(testMenu).consumption.length;
-expected = 0;
-assert.strictEqual(actual, expected);
-//// Verifica se o objetoRetornado possui a chave order
-actual = Object.keys(createMenu(testMenu)).indexOf('order');
-expected = -1;
-assert.notStrictEqual(actual, expected);
-//// Verifica se o objetoRetornado.order é realmente uma função
-actual = typeof createMenu(testMenu).order;
-expected = 'function';
-assert.strictEqual(actual, expected);
-//// Verifica se a objetoRetornado.order(str) adiciona str em objetoRetornado.consumption
-actual = createMenu(testMenu);
-actual.order('coxinha');
-actual = actual.consumption;
-expected = ['coxinha'];
-assert.deepStrictEqual(actual, expected);
-//// Verifica se ao acrescentar 4 itens eles preenchiram o objetoRetornado.consumption
-actual = createMenu(testMenu);;
-actual.order('coxinha');
-actual.order('agua');
-actual.order('sopa');
-actual.order('sashimi');
-actual = actual.consumption;
-expected = ['coxinha', 'agua', 'sopa', 'sashimi'];
-assert.deepStrictEqual(actual, expected);
-//// Verifica se ao inserir valores repetidos eles entram repetidos no objetoRetornado.consumption
-actual = createMenu(testMenu);;
-actual.order('coxinha');
-actual.order('agua');
-actual.order('coxinha');
-actual = actual.consumption;
-expected = ['coxinha', 'agua', 'coxinha'];
-assert.deepStrictEqual(actual, expected);
