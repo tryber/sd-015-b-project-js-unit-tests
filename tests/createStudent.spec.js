@@ -36,6 +36,7 @@ describe('5 - Implemente a função `createStudent`', () => {
     assert.strictEqual(estudante2.name, 'Nobre');
     assert.strictEqual(estudante2.feedback(), goodPerson);
 
+    
     const estudante3 = createStudent('Inácio');
     assert.strictEqual(typeof estudante3, 'object');
     assert.strictEqual(typeof estudante3.feedback, 'function');
