@@ -79,11 +79,11 @@ const createMenu = (menu) => {
     order: (request) => orders.push(request),
     pay: () => {
       let total = 0;
-      const itensMenu = Object.keys(menu);
-      for (const itemOrder of orders) {
-        for (const itemMenu of itensMenu) {
-          const price = menu[itemMenu][itemOrder] || 0;
-          total += price;
+      const categories = Object.keys(menu);
+      for (let category of categories) {
+        const orderedItems = Object.keys(menu[category]);
+        for (let item of orderedItems) {
+          total += menu[category][item];
         }
       }
       return total;
