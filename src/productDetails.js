@@ -38,5 +38,6 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-
+const res = productDetails('Alcool gel', 'Máscara');
+console.log(res[0].details.productId.match(/\d+/)[0]);
 module.exports = productDetails;
