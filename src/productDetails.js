@@ -38,5 +38,8 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-
+// const actual2 = productDetails('Banana', 'Maca');
+// const str = 'Bana321na123';
+// const regex = /.*123$/;
+// console.log(str.match(regex));
 module.exports = productDetails;

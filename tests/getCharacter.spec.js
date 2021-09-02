@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
+const { get } = require('http');
 const getCharacter = require('../src/getCharacter');
 
 /*
@@ -46,7 +47,6 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
@@ -54,5 +54,17 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
     // Teste se a função se os parâmetros não são Case Sensitive.
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+
+    const arya = getCharacter('Arya');
+    const actualVazio = getCharacter();
+    const aryaObj = {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    }
+
+    assert.strictEqual(actualVazio, undefined);
+    assert.deepStrictEqual(arya, aryaObj);
+
   });
 });

@@ -11,7 +11,17 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const assert = require('assert');
 
-const average = () => {};
+const average = (nums) => {
+  let stringNum;
+  let sum = 0;
+ nums.forEach((num) => {
+    if (typeof num === 'string') stringNum = true;
+    sum += num;
+  });
+  if (stringNum || !nums.length) return undefined;
+  return Math.round(sum / nums.length);
+};
 
 module.exports = average;
