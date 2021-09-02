@@ -91,7 +91,6 @@ const createMenu = (obj) => {
       // let cardapioRestaurante = menu.fetchMenu;
       // console.log(cardapioRestaurante);
       for (let index = 0; index < itensConsumidos.length; index += 1) { // Percorre o array Consumption para verificar os itens
-        
         const itemAtual = itensConsumidos[index];
         const itensMenu = menu.fetchMenu();
 
@@ -100,7 +99,6 @@ const createMenu = (obj) => {
           // console.log("IT'S WORK!!!"); // [DEBUG]
           // console.log(itemAtual); // [DEBUG]
           sum += itensMenu.food[itemAtual]; // Busca no menu comida, o valor dentro da chave de nome do itemAtual
-
         } else if (Object.keys(itensMenu.drink).includes(itemAtual)) { // Senão, se o menu de Bebidas inclui o item, faça isso!
           // console.log("IT'S WORK!!!"); // [DEBUG]
           // console.log(itemAtual); // [DEBUG]
@@ -108,11 +106,10 @@ const createMenu = (obj) => {
         }
         let produtoAtual = itensConsumidos[index]; // Variável auxiliar para salvar Produto Atual
         // Se o objeto food inclui o Produto Atual, adicione o valor dele a Sum.
-        
       }
       return sum;
-    }
-  }
+    },
+  };
   return menu;
 };
 
