@@ -118,14 +118,14 @@ const createMenu = (obj) => {
 
 module.exports = createMenu;
 
-const menu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Define menu do Restaurante
-const meuRestaurante = createMenu(menu); // Cria menu dentro da função do restaurante;
-const getMenu = meuRestaurante.fetchMenu();
+// const menu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Define menu do Restaurante
+// const meuRestaurante = createMenu(menu); // Cria menu dentro da função do restaurante;
+// const getMenu = meuRestaurante.fetchMenu();
 
-meuRestaurante.order('coxinha');
-meuRestaurante.order('agua');
-meuRestaurante.order('coxinha');
+// meuRestaurante.order('coxinha');
+// meuRestaurante.order('agua');
+// meuRestaurante.order('coxinha');
 
-console.log(menu);
-// console.log(getMenu);
-console.log(meuRestaurante.calcValue());
+// console.log(menu);
+// // console.log(getMenu);
+// console.log(meuRestaurante.calcValue());
