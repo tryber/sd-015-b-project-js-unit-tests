@@ -92,7 +92,6 @@ function calculateTotal() {
   const tip = 1.1;
   let total = 0;
 
-  // console.log(drinks.includes(orders[0]));
   for (const order of orders) {
     if (foods.includes(order)) {
       total += menu.food[order];
@@ -113,21 +112,5 @@ const createMenu = (objeto) => {
   };
   return newObject;
 };
-
-const meuRestaurante = createMenu({
-  food: {
-    coxinha: 3.9,
-    sopa: 9.9,
-  },
-  drink: {
-    agua: 3.9,
-    cerveja: 6.9,
-  },
-});
-
-meuRestaurante.order('coxinha');
-meuRestaurante.order('cerveja');
-console.log(meuRestaurante.consumption);
-console.log(meuRestaurante.pay());
 
 module.exports = createMenu;
