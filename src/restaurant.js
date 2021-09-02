@@ -93,8 +93,8 @@ const orderTotal = () => {
   const drinkValues = Object.values(restaurant.fetchMenu().drink);
   const orderList = restaurant.consumption;
   let total = 0;
-  
-  for (let order of orderList) {
+
+  orderList.forEach((order) => {
     if (foodKeys.includes(order)) {
       const getIndex = foodKeys.indexOf(order);
       total += foodValues[getIndex];
@@ -102,7 +102,7 @@ const orderTotal = () => {
       const getIndex = drinkKeys.indexOf(order);
       total += drinkValues[getIndex];
     }
-  }
+  });
 
   total = parseFloat(total * 1.1).toPrecision(4);
 
@@ -121,7 +121,8 @@ const bar = createMenu({ food: { coxinha: 3.9, sopa: 8.9 }, drink: { agua: 3.9, 
 bar.order('coxinha');
 bar.order('agua');
 bar.order('coxinha');
-
+bar.order('sopa');
+bar.order('cerveja');
 console.log(bar.consumption);
 console.log(bar.fetchMenu());
 console.log(bar.pay());
