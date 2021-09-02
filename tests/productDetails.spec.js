@@ -33,7 +33,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    const expected = productDetails('Alcool gel', 'Máscara')
+    const expected = productDetails('Alcool gel', 'Máscara');
     assert.strictEqual(Array.isArray(expected), true);
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(expected.length, 2);
