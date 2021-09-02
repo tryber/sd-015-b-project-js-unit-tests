@@ -19,11 +19,13 @@ const myCounter = () => {
   var myArray = [];
   for (var counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
-    for (var counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
+    for (var numbers = 2; numbers <= 3; numbers += 1) {
+      myArray.push(numbers);
     }
   }
   return myArray;
 };
+
+console.log(myCounter());
 
 module.exports = myCounter;
