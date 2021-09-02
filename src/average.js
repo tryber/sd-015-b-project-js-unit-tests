@@ -15,15 +15,15 @@
 const average = () => {
 const number = () => Math.floor(Math.random() * 10);
   const array = [];
-  for(let i = 0; i <= number(); i += 1) {
+  for (let i = 0; i <= number(); i += 1) {
     array.push(i);
   }
   console.log(array);
   
-  const calcArray = array.reduce( (previousVal, currentVal) => previousVal + currentVal, 0)/array.length;
-  const finalArray = Math.round(calcArray);
+  const cal = array.reduce((previousVal, currentVal) => previousVal + currentVal, 0) / array.length;
+  const finalArray = Math.round(cal);
   console.log(finalArray);
 
   return finalArray;
-}
+};
 module.exports = average;
