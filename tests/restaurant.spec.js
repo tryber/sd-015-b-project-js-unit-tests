@@ -110,7 +110,12 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
-    
+    meuRestaurante.clearOrder(); // Função que limpa pedidos para realizar Testes
+    meuRestaurante.order("coxinha");
+    meuRestaurante.order("sopa");
+    meuRestaurante.order("cerveja");
+    meuRestaurante.order("agua");
+    assert.deepStrictEqual(meuRestaurante.consumption.length, 4); // Verifica se o tamanho do array é, respectivamente, de 4 itens pedidos
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
