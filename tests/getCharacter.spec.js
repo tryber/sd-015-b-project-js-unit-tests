@@ -65,7 +65,7 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
       },
     };
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    assert.deepStrictEqual(getCharacter(), undefined);
+    assert.strictEqual(getCharacter(), undefined);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
     assert.deepStrictEqual(getCharacter('Arya'), characters.arya);
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
@@ -76,6 +76,6 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     assert.deepStrictEqual(getCharacter('ARYA'), characters.arya);
     assert.deepStrictEqual(getCharacter('arya'), characters.arya);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
-    assert.deepStrictEqual(getCharacter('Gabriel'), undefined);
+    assert.strictEqual(getCharacter('Gabriel'), undefined);
   });
 });
