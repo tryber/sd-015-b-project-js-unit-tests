@@ -46,13 +46,40 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    const getCharacter1 = getCharacter();
+    assert.strictEqual(getCharacter1, undefined);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    const getCharacter2 = getCharacter('Arya');
+    assert.deepStrictEqual(getCharacter2, {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    });
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    const getCharacter3 = getCharacter('Brienne');
+    assert.deepStrictEqual(getCharacter3, {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+    });
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    const getCharacter4 = getCharacter('Melissandre');
+    assert.deepStrictEqual(getCharacter4, {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    });
     // Teste se a função se os parâmetros não são Case Sensitive.
+    const getCharacter5 = getCharacter('melissandre');
+    assert.deepStrictEqual(getCharacter5, {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    });
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    const getCharacter6 = getCharacter('Deivid');
+    assert.deepStrictEqual(getCharacter6, undefined);
   });
 });
