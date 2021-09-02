@@ -33,7 +33,7 @@
     food: {'coxinha': 3.90, 'sanduiche', 9.90},
     drinks: {'agua': 3.90, 'cerveja': 6.90}
   });
-
+  }
   meuRestaurante.fetchMenu() // Retorno: Menu acima
 
   - Uma chave `consumption` que contém um array de strings, com cada string sendo a chave de um pedido. Por exemplo: ['coxinha', 'cerveja']
@@ -46,7 +46,6 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-//
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -78,7 +77,38 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+const createMenu = (obj) => {
+  const menu = obj;
+  const restaurantFunctions = {
+    fetchMenu: () => obj,
+    consumption: [],
+    order(myOrder) {
+      this.consumption.push(myOrder);
+      return restaurantFunctions; 
+    },
+    pay: () => {
+      let payment = 0;
+      const menuValues = Object.values(menu);
+      const foods = Object.entries(menuValues[0]);
+      const drinks = Object.entries(menuValues[1]);
+      const fds = foods.concat(drinks);
+      const restConsumption = restaurantFunctions.consumption;
+      const compairToSum = (i, j) => {
+        if (restConsumption[i] === fds[j][0]) {
+          payment += fds[j][1];
+          payment = Math.round(payment * 100) / 100;
+        }
+      };
 
-const createMenu = () => {};
+      for (let i = 0; i < restConsumption.length; i += 1) {
+        for (let j = 0; j < fds.length; j += 1) {
+          compairToSum(i, j);
+        }
+      }
+      return 1.1 * payment;
+    },
+  };
+  return restaurantFunctions;
+};
 
 module.exports = createMenu;
