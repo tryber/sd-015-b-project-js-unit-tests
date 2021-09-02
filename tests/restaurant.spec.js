@@ -142,8 +142,8 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
     //Aproveitando order (Pedidos) feitos no Teste 7 (para evitar redundância de declarações)
     const pagamento = meuRestaurante.pay();
-    assert.deepStrictEqual(pagamento, 11.8); // [DEBUG] Valor Errado
-    // assert.deepStrictEqual(pagamento, 11.7);
+    // assert.deepStrictEqual(pagamento, 11.8); // [DEBUG] Valor Errado
+    assert.deepStrictEqual(pagamento, 11.7);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
