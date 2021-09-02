@@ -32,12 +32,14 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     const produto1 = productDetails()[0];
     const produto2 = productDetails()[1];
+    const idProduct1 = produto1.details.productId;
+    const idProduct2 = produto2.details.productId;
     assert.strictEqual(Array.isArray(productDetails()), true);
     assert.deepStrictEqual(productDetails().length, 2);
     assert.strictEqual(typeof produto1, 'object');
     assert.strictEqual(typeof produto2, 'object');
     assert.deepStrictEqual(produto1 === produto2, false);
-    assert.strictEqual(produto1.productIds.includes('123'), true);
-    // Teste que os dois productIds terminam com 123.
+    assert.strictEqual(idProduct1.includes('123'), true);
+    assert.strictEqual(idProduct2.includes('123'), true);    
   });
 });
