@@ -15,7 +15,16 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
+const checkName = (nome) => typeof nome === 'string';
+const checkAge = (idade) => typeof idade === 'number';
 
-const vqv = (nome, idade) => {};
+const vqv = (nome, idade) => {
+  if (checkName(nome) && checkAge(idade)) {
+    return (`Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`);
+  }
+};
 
 module.exports = vqv;
