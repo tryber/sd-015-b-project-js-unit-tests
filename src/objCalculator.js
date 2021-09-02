@@ -27,10 +27,3 @@ const calculator = {
 };
 
 module.exports = calculator;
-
-const assert = require('assert');
-
-assert.strictEqual(calculator.add(1, 3), 4);
-assert.strictEqual(calculator.mult(10, 3), 30);
-assert.strictEqual(calculator.div(5, 2), 2);
-assert.strictEqual(calculator.sub(1, 3), -2);
