@@ -14,6 +14,10 @@
 
 // commit de teste
 
-const average = () => {};
+const average = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
+};
 
 module.exports = average;
