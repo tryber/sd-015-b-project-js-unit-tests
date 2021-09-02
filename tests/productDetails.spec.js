@@ -36,9 +36,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.strictEqual(typeof products[0], 'object');
     assert.strictEqual(typeof products[1], 'object');
     assert.strictEqual(products[0] === products[1], false);
-    assert.strictEqual((products[0].details.productId))
-    assert.strictEqual(products[0].details.productId.split('1').pop(), '23');
-    assert.strictEqual(products[1].details.productId.split('1').pop(), '23');
+    assert.strictEqual(products[0].details.productId.endsWith(123), true);
+    assert.strictEqual(products[1].details.productId.endsWith(123), true);
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
