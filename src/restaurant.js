@@ -97,12 +97,14 @@ const createMenu = (obj) => {
 
         // Se o Produto Atual existe no menu, pego o preço dele e adiciono a sum
         if (Object.keys(itensMenu.food).includes(itemAtual)) { // Se o menu de comidas inclui o item, faça isso!
-          console.log("IT'S WORK!!!"); // [DEBUG]
-          console.log(itemAtual); // [DEBUG]
+          // console.log("IT'S WORK!!!"); // [DEBUG]
+          // console.log(itemAtual); // [DEBUG]
+          sum += itemAtual;
 
         } else if (Object.keys(itensMenu.drink).includes(itemAtual)) { // Senão, se o menu de Bebidas inclui o item, faça isso!
-          console.log("IT'S WORK!!!"); // [DEBUG]
-          console.log(itemAtual); // [DEBUG]
+          // console.log("IT'S WORK!!!"); // [DEBUG]
+          // console.log(itemAtual); // [DEBUG]
+          sum += itemAtual;
         }
         let produtoAtual = itensConsumidos[index]; // Variável auxiliar para salvar Produto Atual
         // Se o objeto food inclui o Produto Atual, adicione o valor dele a Sum.
