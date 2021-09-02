@@ -30,5 +30,4 @@ const circle = (radius) => {
   };
 };
 
-assert.strictEqual(circle(1), 3);
 module.exports = circle;
