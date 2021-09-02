@@ -129,7 +129,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     meuRestaurante.order("coxinha");
     meuRestaurante.order("agua");
     meuRestaurante.order("coxinha");
-    assert.deepStrictEqual(meuRestaurante.consumption, ["coxinha", "agua", "coxinha"]); // A primeira 'coxinha' é recebida do teste anterior
+    assert.deepStrictEqual(meuRestaurante.consumption, ["coxinha", "agua", "coxinha"]); // A função clearOrder limpa o conflito de receber pedidos antigos
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
@@ -139,7 +139,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+
+    //Aproveitando order (Pedidos) feitos no Teste 7 (para evitar redundância de declarações)
     
+
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
