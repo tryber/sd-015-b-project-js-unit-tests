@@ -16,19 +16,13 @@ const average = (array) => {
   let arrayLength = array.length;
   let count = 0;
 
-  if (arrayLength === 0) {
-    return undefined;
-  }
+  if (arrayLength === 0) return undefined;
 
   for (let i = 0; i < arrayLength; i += 1) {
     let number = array[i];
     if (typeof number !== 'number') {
       return undefined;
     }
-  }
-
-  for (let i = 0; i < arrayLength; i += 1) {
-    let number = array[i];
     count += number;
   }
 
