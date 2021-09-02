@@ -77,42 +77,27 @@ const restaurant = {};
 
 const orderFromMenu = (str) => restaurant.consumption.push(str);
 
-const checkFoods = () => {
-  const foods = restaurant.fetchMenu().food;
-  const requests = restaurant.consumption;
-  let partialValue = 0;
-
-  requests.forEach((item) => {
-    if (typeof foods[item] === 'number') {
-      partialValue += foods[item];
-    }
-  });
-
-  return partialValue;
-};
-
-const checkDrinks = () => {
-  const drinks = restaurant.fetchMenu().drink;
-  const requests = restaurant.consumption;
-  let partialValue = 0;
-
-  requests.forEach((item) => {
-    if (typeof drinks[item] === 'number') {
-      partialValue += drinks[item];
-    }
-  });
-
-  return partialValue;
-};
-
 const total = () => {
-  let amount = 0;
+  const menu = restaurant.fetchMenu();
 
-  amount += checkFoods();
-  amount += checkDrinks();
+  const amount = restaurant.consumption.reduce((acc, request) => {
+    if (menu.food[request]) {
+      return acc + menu.food[request];
+    }
 
-  amount += (amount * 0.1);
-  return amount;
+    if (menu.drink[request]) {
+      return acc + menu.drink[request];
+    }
+
+    return acc;
+  }, 0);
+
+  const tipPercentage = 0.1;
+  
+  const tip = amount * tipPercentage; 
+  const amountWithTip = amount + tip;
+
+  return amountWithTip;
 };
 
 const createMenu = (obj) => {
