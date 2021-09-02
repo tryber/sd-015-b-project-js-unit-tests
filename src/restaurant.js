@@ -45,13 +45,14 @@
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
+// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () =>
+// objetoPassadoPorParametro }. V
 //
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
+// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.  V
 //
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
@@ -79,6 +80,54 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+function addOrder(string) {
+  this.consumption.push(string);
+}
+
+function calculateTotal() {
+  const orders = this.consumption;
+  const menu = this.fetchMenu();
+  const foods = Object.keys(menu.food);
+  const drinks = Object.keys(menu.drink);
+  const tip = 1.1;
+  let total = 0;
+
+  // console.log(drinks.includes(orders[0]));
+  for (const order of orders) {
+    if (foods.includes(order)) {
+      total += menu.food[order];
+    }
+    if (drinks.includes(order)) {
+      total += menu.drink[order];
+    }
+  }
+  return parseFloat((total * tip).toFixed(2));
+}
+
+const createMenu = (objeto) => {
+  const newObject = {
+    fetchMenu: () => objeto,
+    consumption: [],
+    order: addOrder,
+    pay: calculateTotal,
+  };
+  return newObject;
+};
+
+const meuRestaurante = createMenu({
+  food: {
+    coxinha: 3.9,
+    sopa: 9.9,
+  },
+  drink: {
+    agua: 3.9,
+    cerveja: 6.9,
+  },
+});
+
+meuRestaurante.order('coxinha');
+meuRestaurante.order('cerveja');
+console.log(meuRestaurante.consumption);
+console.log(meuRestaurante.pay());
 
 module.exports = createMenu;
