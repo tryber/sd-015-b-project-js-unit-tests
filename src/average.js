@@ -26,7 +26,6 @@ const average = (array) => {
       result = Math.round(sum / array.length);
     }
   }
-  console.log(result);    
   return result;
 };
 average([1, 2, 4, 5, '6', 9, 22]);
