@@ -67,9 +67,12 @@
 
 const restaurant = {};
 
+const orderFromMenu = (str) => restaurant.consumption.push(str);
+
 const createMenu = (obj) => {
   restaurant.fetchMenu = () => obj;
   restaurant.consumption = [];
+  restaurant.order = orderFromMenu;
 
   return restaurant;
 };
