@@ -46,13 +46,19 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
+    // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    assert.deepStrictEqual(getCharacter(), undefined);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    assert.deepStrictEqual(getCharacter('Arya'), {class: 'Rogue', name: 'Arya Stark', phrases: ['Not today', 'A girl has no name.']});
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    assert.deepStrictEqual(getCharacter('Brienne'), {class: 'Knight', name: 'Brienne Tarth',phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.']});
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    assert.deepStrictEqual(getCharacter('Melissandre'), {class: 'Necromancer', name: 'Melissandre',phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.']});
     // Teste se a função se os parâmetros não são Case Sensitive.
+    assert.deepStrictEqual(getCharacter('ARYA'), getCharacter('arya'));
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    assert.deepStrictEqual(getCharacter('Caique'), undefined);
   });
 });
