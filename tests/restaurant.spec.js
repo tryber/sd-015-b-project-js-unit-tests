@@ -119,6 +119,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    meuMenu.order('sanduiche');
+    assert.deepStrictEqual(meuMenu.consumption.length, 4);
+    assert.deepStrictEqual(meuMenu.consumption.indexOf('sanduiche', 3), 3);
+    assert.deepStrictEqual(meuMenu.consumption.indexOf('sanduiche', 2), 2);
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
