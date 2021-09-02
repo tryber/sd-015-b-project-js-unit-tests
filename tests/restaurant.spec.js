@@ -49,18 +49,31 @@ const createMenu = require('../src/restaurant');
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
     assert.strictEqual(Object.keys(createMenu()).includes('fetchMenu'), true);
-    assert.strictEqual(typeof createMenu().fetchMenu, 'function');
-    const functionParameter = { food: {}, drink: {} };
-    const actual = Object.keys(createMenu(functionParameter).fetchMenu());
-    const expected = [ 'food', 'drink'];
-    const myReturn = { food: {}, drink: {}};
-    assert.strictEqual(Object.keys(functionParameter).length, actual.length);
-    assert.deepStrictEqual(actual, expected);
-    assert.deepStrictEqual(myReturn, createMenu(myReturn).fetchMenu());
-    assert.deepStrictEqual(createMenu().consumption, []);
+assert.strictEqual(typeof createMenu().fetchMenu, 'function');
 
-    const testOrder = createMenu().order('teste');
-    assert.deepStrictEqual(testOrder.consumption, [ 'teste' ]);
+const functionParameter = { food: {}, drink: {} };
+const actual = Object.keys(createMenu(functionParameter).fetchMenu());
+const expected = [ 'food', 'drink'];
+assert.strictEqual(Object.keys(functionParameter).length, actual.length);
+assert.deepStrictEqual(actual, expected);
+assert.deepStrictEqual(expected, createMenu(expected).fetchMenu());
+assert.deepStrictEqual(createMenu().consumption, []);
+const restaurant = createMenu().order('coxinha');
+assert.deepStrictEqual(restaurant.consumption,['coxinha']);
+restaurant.order("agua");
+restaurant.order("sopa");
+restaurant.order("sashimi");
+assert.deepStrictEqual(restaurant.consumption, ["coxinha", "agua", "sopa", "sashimi"]);
+const myObj = {food: {coxinha: 3.90, sanduiche: 9.90}, drinks: {agua: 3.90, cerveja: 6.90}}
+const restaurant3 = createMenu(myObj);
+restaurant3.order('coxinha');
+restaurant3.order('agua');
+restaurant3.order('sanduiche');
+restaurant3.order('coxinha');
+restaurant3.order('coxinha');
+assert.strictEqual(restaurant3.pay(), 28.05);
+
+    // assert.deepStrictEqual(testOrder.consumption, [ 'teste' ]);
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
     // ```
