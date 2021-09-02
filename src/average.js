@@ -11,7 +11,20 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-const average = () => {
-  // add your implementation here
+
+// consultei o repositorio do André Luiz S. pois estava tento dificuldades pois estava com dificuldade no typeof e no Math.Round
+const average = (array) => {
+  if (typeof array === 'undefined') { return undefined; } 
+  let results = 0;
+  let soma = 0;
+  for (let i = 0; i < array.length; i = +1) {
+      if (typeof array[i] !== 'number') { return undefined; }
+      
+      soma += array[i];
+  }
+   
+  results = soma / array.length;
+  return Math.round(results);
 };
+
 module.exports = average;
