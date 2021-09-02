@@ -88,11 +88,25 @@ const createMenu = (obj) => {
     calcValue: () => {
       let sum = 0;
       let itensConsumidos = menu.consumption;
-      let cardapioRestaurante = menu.fetchMenu;
+      // let cardapioRestaurante = menu.fetchMenu;
+      // console.log(cardapioRestaurante);
       for (let index = 0; index < itensConsumidos.length; index += 1) { // Percorre o array Consumption para verificar os itens
-        // Se o item existe no menu, pego o preço dele e adiciono a sum
+        
+        const itemAtual = itensConsumidos[index];
+        const itensMenu = menu.fetchMenu();
+
+        // Se o Produto Atual existe no menu, pego o preço dele e adiciono a sum
+        if (Object.keys(itensMenu.food).includes(itemAtual)) { // Se o menu de comidas inclui o item, faça isso!
+          console.log("IT'S WORK!!!"); // [DEBUG]
+          console.log(itemAtual); // [DEBUG]
+
+        } else if (Object.keys(itensMenu.drink).includes(itemAtual)) { // Senão, se o menu de Bebidas inclui o item, faça isso!
+          console.log("IT'S WORK!!!"); // [DEBUG]
+          console.log(itemAtual); // [DEBUG]
+        }
         let produtoAtual = itensConsumidos[index]; // Variável auxiliar para salvar Produto Atual
         // Se o objeto food inclui o Produto Atual, adicione o valor dele a Sum.
+        
       }
       return sum;
     }
@@ -111,5 +125,5 @@ meuRestaurante.order('agua');
 meuRestaurante.order('coxinha');
 
 console.log(menu);
-console.log(getMenu);
+// console.log(getMenu);
 console.log(meuRestaurante.calcValue());
