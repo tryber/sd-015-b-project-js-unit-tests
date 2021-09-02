@@ -69,6 +69,7 @@ const restaurant = {};
 
 const createMenu = (obj) => {
   restaurant.fetchMenu = () => obj;
+  restaurant.consumption = [];
 
   return restaurant;
 };
