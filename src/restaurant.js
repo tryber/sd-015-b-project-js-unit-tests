@@ -85,7 +85,7 @@ const createMenu = (obj) => {
     consumption: [],
     order: (str) => menu.consumption.push(str),
     clearOrder: () => menu.consumption = [],
-    calcValue: () => {
+    pay: () => {
       let sum = 0;
       let itensConsumidos = menu.consumption;
       // let cardapioRestaurante = menu.fetchMenu;
