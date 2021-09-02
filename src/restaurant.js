@@ -89,6 +89,18 @@ const createMenu = (obj) => {
   restaurant.fetchMenu = () => obj;
   restaurant.consumption = [];
   restaurant.order = orderFromMenu;
+  restaurant.pay = () => {
+    let total = 0;
+    for (let item of restaurant.consumption) {
+      if (obj.food[item]) {
+        total += obj.food[item];
+      }
+      if (obj.drink[item]) {
+        total += obj.drink[item];
+      }
+    }
+    return parseFloat((total * 1.1).toPrecision(4));
+  };
   return restaurant;
 };
 
