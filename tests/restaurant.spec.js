@@ -48,24 +48,62 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
+    let expected;
+    let actual;
+    const testMenu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
+    //// Verifica se a saida é ou um objeto
+    actual = typeof createMenu(testMenu);
+    expected = 'object';
+    assert.deepStrictEqual(actual, expected);
+    //// Verifica se a saida não é um array
+    actual = Array.isArray(createMenu(testMenu));
+    expected = false;
+    assert.strictEqual(actual, expected);
+    //// Verifica se dentro do objeto de saída há uma chave chamada fetchMenu
+    actual = Object.keys(createMenu(testMenu)).indexOf('fetchMenu');
+    expected = -1;
+    assert.notStrictEqual(actual, expected);
+    //// Verifica se a chave fetchMenu é uma função
+    actual = typeof createMenu(testMenu).fetchMenu;
+    expected = 'function';
+    assert.strictEqual(actual, expected);
+    //// Verifica se dentro do objeto de saída so tem uma chave
+    actual = Object.keys(createMenu(testMenu)).length;
+    expected = 1;
+    assert.notStrictEqual(actual, expected);
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
     // ```
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
+    //// Verifica se a saída 'objetoRetornado.fetchMenu()' é realmente um objeto
+    actual = typeof createMenu(testMenu).fetchMenu();
+    expected = 'object';
+    assert.strictEqual(actual, expected);
+    //// Verifica se a saída 'objetoRetornado.fetchMenu()' não é um array
+    actual = Array.isArray(createMenu(testMenu).fetchMenu());
+    expected = false;
+    assert.strictEqual(actual, expected);
+    //// Verifica se a saída é um objecto com somente duas chaves food e drink
+    actual = Object.keys(createMenu(testMenu).fetchMenu()).sort();
+    expected = ['food', 'drink'].sort();
+    assert.deepStrictEqual(actual, expected);
     // TESTE 3: Verifique que o menu passado pra função createMenu é identico ao menu recuperado pela função 'objetoRetornado.fetchMenu'
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu() // Retorno: objetoQualquer
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
+    //// Verifica se a saída objetoRetornado.fetchMenu() é igual ao menu de entrada
+    actual = createMenu(testMenu).fetchMenu();
+    expected = testMenu;
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
@@ -73,6 +111,14 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: []
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
+    //// Verifica que o objetoRetornado.consumption é um array
+    actual = Array.isArray(createMenu(testMenu).consumption);
+    expected = true;
+    assert.strictEqual(actual, expected);
+    //// Verifica se o array de retorno é vazio
+    actual = createMenu(testMenu).consumption.length;
+    expected = 0;
+    assert.strictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
@@ -82,6 +128,20 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
+    //// Verifica se o objetoRetornado possui a chave order
+    actual = Object.keys(createMenu(testMenu)).indexOf('order');
+    expected = -1;
+    assert.notStrictEqual(actual, expected);
+    //// Verifica se o objetoRetornado.order é realmente uma função
+    actual = typeof createMenu(testMenu).order;
+    expected = 'function';
+    assert.strictEqual(actual, expected);
+    //// Verifica se a objetoRetornado.order(str) adiciona str em objetoRetornado.consumption
+    actual = createMenu(testMenu);
+    actual.order('coxinha');
+    actual = actual.consumption;
+    expected = ['coxinha'];
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
@@ -92,6 +152,15 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
     // Agora faça o TESTE 7 deste arquivo.
+    //// Verifica se ao acrescentar 4 itens eles preenchiram o objetoRetornado.consumption
+    actual = createMenu(testMenu);
+    actual.order('coxinha');
+    actual.order('agua');
+    actual.order('sopa');
+    actual.order('sashimi');
+    actual = actual.consumption;
+    expected = ['coxinha', 'agua', 'sopa', 'sashimi'];
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
@@ -101,6 +170,14 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     // Agora faça o TESTE 8 deste arquivo.
+    //// Verifica se ao inserir valores repetidos eles entram repetidos no objetoRetornado.consumption
+    actual = createMenu(testMenu);
+    actual.order('coxinha');
+    actual.order('agua');
+    actual.order('coxinha');
+    actual = actual.consumption;
+    expected = ['coxinha', 'agua', 'coxinha'];
+    assert.deepStrictEqual(actual, expected);
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
     // ```
@@ -110,5 +187,17 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+    //// Verifica se a chave pay é realmente um objeto
+    actual = typeof createMenu(testMenu).pay;
+    expected = 'function';
+    assert.strictEqual(actual, expected);
+    //// Verifica se ao utilizar objetoRetornado.pay() ele retorna a soma dos valores de  objetoRetornado.consumption
+    actual = createMenu(testMenu);
+    actual.order('coxinha');
+    actual.order('agua');
+    actual.order('coxinha');
+    actual = actual.pay();
+    expected = 12.87;
+    assert.strictEqual(actual, expected);
   });
 });

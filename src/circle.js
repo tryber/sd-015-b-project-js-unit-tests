@@ -19,12 +19,15 @@
 */
 
 const circle = (radius) => {
+  // I not use PI = Math.PI because had arred number error in tests.
   const PI = 3.14;
   if (!radius) { return undefined; }
+  const area = PI * radius * radius;
+  const circumference = 2 * PI * radius;
   return {
     radius,
-    area: PI * radius * radius,
-    circumference: 2 * PI * radius,
+    area: parseFloat(area.toFixed(2)),
+    circumference: parseFloat(circumference.toFixed(2)),
   };
 };
 
