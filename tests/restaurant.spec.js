@@ -68,8 +68,8 @@ const myObj = {food: {coxinha: 3.90, sanduiche: 9.90}, drinks: {agua: 3.90, cerv
 const restaurant3 = createMenu(myObj);
 restaurant3.order('coxinha');
 restaurant3.order('agua');
-restaurant3.order('sanduiche');
 restaurant3.order('coxinha');
+restaurant3.order('sanduiche');
 restaurant3.order('coxinha');
 assert.strictEqual(restaurant3.pay(), 28.05);
 
