@@ -25,7 +25,7 @@ trabalho na Trybe e mando muito em programação!
   if (nome === '') {
     return undefined;
   } 
-  if (idade === '' || typeof idade !== 'number') {
+  if (!idade) {
     return undefined;
   } 
     return frase;
