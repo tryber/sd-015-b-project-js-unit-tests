@@ -86,11 +86,44 @@ const orderFromMenu = (request) => {
   return restaurant.consumption;
 };
 
+const orderTotal = () => {
+  const foodKeys = Object.keys(restaurant.fetchMenu().food);
+  const drinkKeys = Object.keys(restaurant.fetchMenu().drink);
+  const foodValues = Object.values(restaurant.fetchMenu().food);
+  const drinkValues = Object.values(restaurant.fetchMenu().drink);
+  const orderList = restaurant.consumption;
+  let total = 0;
+  
+  for (let order of orderList) {
+    if (foodKeys.includes(order)) {
+      const getIndex = foodKeys.indexOf(order);
+      total += foodValues[getIndex];
+    } else if (drinkKeys.includes(order)) {
+      const getIndex = drinkKeys.indexOf(order);
+      total += drinkValues[getIndex];
+    }
+  }
+
+  total = parseFloat(total * 1.1).toPrecision(4);
+
+  return total;
+};
+
 const createMenu = (menu) => {
   restaurant.fetchMenu = () => menu;
   restaurant.consumption = [];
   restaurant.order = orderFromMenu;
+  restaurant.pay = orderTotal;
   return restaurant;
 };
+
+const bar = createMenu({ food: { coxinha: 3.9, sopa: 8.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
+bar.order('coxinha');
+bar.order('agua');
+bar.order('coxinha');
+
+console.log(bar.consumption);
+console.log(bar.fetchMenu());
+console.log(bar.pay());
 
 module.exports = createMenu;
