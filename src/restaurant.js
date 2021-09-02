@@ -79,6 +79,50 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (obj) => {
+  const menu = {
+    fetchMenu: () => obj,
+    consumption: [],
+    order: (str) => menu.consumption.push(str),
+    clearOrder: () => { menu.consumption = []; },
+    pay: () => {
+      let sum = 0;
+      let itensConsumidos = menu.consumption;
+      // let cardapioRestaurante = menu.fetchMenu;
+      // console.log(cardapioRestaurante);
+      for (let index = 0; index < itensConsumidos.length; index += 1) { // Percorre o array Consumption para verificar os itens
+        const itemAtual = itensConsumidos[index];
+        const itensMenu = menu.fetchMenu();
+
+        // Se o Produto Atual existe no menu, pego o preço dele e adiciono a sum
+        if (Object.keys(itensMenu.food).includes(itemAtual)) { // Se o menu de comidas inclui o item, faça isso!
+          // console.log("IT'S WORK!!!"); // [DEBUG]
+          // console.log(itemAtual); // [DEBUG]
+          sum += itensMenu.food[itemAtual]; // Busca no menu comida, o valor dentro da chave de nome do itemAtual
+        } else if (Object.keys(itensMenu.drink).includes(itemAtual)) { // Senão, se o menu de Bebidas inclui o item, faça isso!
+          // console.log("IT'S WORK!!!"); // [DEBUG]
+          // console.log(itemAtual); // [DEBUG]
+          sum += itensMenu.drink[itemAtual]; // Busca no menu bebida, o valor dentro da chave de nome do itemAtual
+        }
+        let produtoAtual = itensConsumidos[index]; // Variável auxiliar para salvar Produto Atual
+        // Se o objeto food inclui o Produto Atual, adicione o valor dele a Sum.
+      }
+      return sum;
+    },
+  };
+  return menu;
+};
 
 module.exports = createMenu;
+
+// const menu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Define menu do Restaurante
+// const meuRestaurante = createMenu(menu); // Cria menu dentro da função do restaurante;
+// const getMenu = meuRestaurante.fetchMenu();
+
+// meuRestaurante.order('coxinha');
+// meuRestaurante.order('agua');
+// meuRestaurante.order('coxinha');
+
+// console.log(menu);
+// // console.log(getMenu);
+// console.log(meuRestaurante.calcValue());
