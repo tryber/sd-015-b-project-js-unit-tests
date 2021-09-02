@@ -9,7 +9,8 @@
   - somar o valor da conta.
 
   A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
-  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o bom desenvolvimento do sistema. 
+  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE,
+  feitos em ordem para o bom desenvolvimento do sistema. 
   Eles guiarão você pelo desenvolvimento.
 
   Parâmetros:
@@ -45,8 +46,8 @@
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-//
+// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato:
+//  { fetchMenu: () => objetoPassadoPorParametro }.
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -59,7 +60,7 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
 // adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode: 
+// DICA: para criar isso, você pode:
 // - Definir a função `createMenu()`
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
 // - E, depois, definir a função que será atribuída a `order`.
@@ -79,6 +80,26 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (menu, orders) => ({ 
+  showMenu: () => menu,
+  consumption: [],
+  order: () => createMenu.consumption.push(orders),
+});
 
+const request = (order) => ({ order: () => createMenu.consumption });
+ 
 module.exports = createMenu;
+
+const menu = {
+  food: {
+    pizza: 10,
+    lasanha: 12,
+  },
+  drink: {
+    coca: 5,
+    schweppes: 4,
+  },
+};
+
+console.log(createMenu().order('amora'));
+console.log(createMenu.consumption);
