@@ -80,7 +80,11 @@
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 const createMenu = (obj) => {
-  
+  const menu = {
+    fetchMenu = () => obj,
+    consumption = [],
+  }
+  return menu;
 };
 
 module.exports = createMenu;
