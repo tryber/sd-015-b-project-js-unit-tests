@@ -48,12 +48,19 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
-    assert.fail();
+    // assert.fail();
+    const menu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Define menu do Restaurante
+    const menuErrado = { food: {'coxinha': 4.0, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Modifica valor da coxinha
+    const meuRestaurante = createMenu(menu); // Cria menu dentro da função do restaurante;
+    const getMenu = meuRestaurante.fetchMenu(); // Recupera menu do Restaurante
     // TESTE 1: Verifique se o retorno da função createMenu() é um objeto que possui, 
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // ```
     // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
     // ```
+    
+    // assert.deepStrictEqual(getMenu, menuErrado); // [DEBUG] Errado
+    assert.deepStrictEqual(getMenu, menu);
 
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, 
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.

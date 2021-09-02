@@ -88,3 +88,10 @@ const createMenu = (obj) => {
 };
 
 module.exports = createMenu;
+
+// const menu = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }; // Define menu do Restaurante
+// const meuRestaurante = createMenu(menu); // Cria menu dentro da função do restaurante;
+// const getMenu = meuRestaurante.fetchMenu();
+
+// console.log(menu);
+// console.log(getMenu);
