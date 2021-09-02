@@ -81,6 +81,7 @@
 
 const restaurant = {};
 
+// source  https://github.com/tryber/sd-014-b-project-js-unit-tests/blob/matheus-h-gonzaga-js-unit-tests-project/tests/restaurant.spec.js
 const payBill = () => {
   let bill = 0;
   restaurant.consumption.forEach((request) => {
