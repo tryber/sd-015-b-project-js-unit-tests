@@ -51,6 +51,7 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     assert.strictEqual(getCharacter(), undefined);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    assert.deepStrictEqual(getCharacter('Arya'), { name: 'Arya Stark', class: 'Rogue', phrases: ['Not today', 'A girl has no name.'] }) // ref.: consulta em: https://www.w3schools.com/nodejs/met_assert_deepstrictequal.asp
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
     // Teste se a função se os parâmetros não são Case Sensitive.
