@@ -78,7 +78,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // TESTE 4: Verifique que 'objetoRetornado.consumption', após a criação do menu, retorna um array vazio.
     // ```
-    const objetoRetornado4 = createMenu();
+    const objetoRetornado4 = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
     assert.deepStrictEqual(objetoRetornado4.consumption(), []);
     // objetoRetornado.consumption // Retorno: []
     // ```
