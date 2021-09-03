@@ -86,13 +86,6 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
       phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
     });
     // Teste se a função se os parâmetros não são Case Sensitive.
-    const characters = {
-      arya: {
-        name: 'Arya Stark',
-        class: 'Rogue',
-        phrases: ['Not today', 'A girl has no name.'],
-      },
-    };
     assert.deepStrictEqual(getCharacter('ARYA'), characters.arya);
     assert.deepStrictEqual(getCharacter('arya'), characters.arya);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
