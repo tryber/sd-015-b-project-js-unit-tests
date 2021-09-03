@@ -77,8 +77,9 @@ const restaurant = {};
 
 const orderFromMenu = (str) => restaurant.consumption.push(str);
 
-const checkFoods = () => {
+const checkFoodsAndDrinks = () => {
   const foods = restaurant.fetchMenu().food;
+  const drinks = restaurant.fetchMenu().drink;
   const requests = restaurant.consumption;
   let partialValue = 0;
 
@@ -86,17 +87,7 @@ const checkFoods = () => {
     if (typeof foods[item] === 'number') {
       partialValue += foods[item];
     }
-  });
 
-  return partialValue;
-};
-
-const checkDrinks = () => {
-  const drinks = restaurant.fetchMenu().drink;
-  const requests = restaurant.consumption;
-  let partialValue = 0;
-
-  requests.forEach((item) => {
     if (typeof drinks[item] === 'number') {
       partialValue += drinks[item];
     }
@@ -108,8 +99,7 @@ const checkDrinks = () => {
 const total = () => {
   let amount = 0;
 
-  amount += checkFoods();
-  amount += checkDrinks();
+  amount += checkFoodsAndDrinks();
 
   amount += (amount * 0.1);
   return amount;
