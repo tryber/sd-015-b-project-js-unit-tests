@@ -38,8 +38,5 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-console.log(productDetails('veja', 'amaciante')[1]);
-console.log(productDetails('veja', 'amaciante')[0].details.productId);
-console.log(productDetails()[0].details.productId);
 
 module.exports = productDetails;
