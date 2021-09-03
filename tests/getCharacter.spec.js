@@ -46,13 +46,42 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    assert.fail();
+    // assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    const arya = {
+      name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    };
+    const brienne = {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+    };
+    const melissandre = {
+      name: 'Melissandre',
+      class: 'Necromancer',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    };
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    assert.strictEqual(getCharacter(), undefined);
     // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
+    assert.strictEqual(typeof getCharacter('Arya'), 'object');
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    assert.strictEqual(typeof getCharacter('Brienne'), 'object');
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
+    assert.strictEqual(typeof getCharacter('Melissandre'), 'object');
     // Teste se a função se os parâmetros não são Case Sensitive.
+    assert.deepStrictEqual(getCharacter('aRyA'), arya);
+    assert.deepStrictEqual(getCharacter('arya'), arya);
+    assert.deepStrictEqual(getCharacter('ARYA'), arya);
+    assert.deepStrictEqual(getCharacter('bRiEnNe'), brienne);
+    assert.deepStrictEqual(getCharacter('brienne'), brienne);
+    assert.deepStrictEqual(getCharacter('BRIENNE'), brienne);
+    assert.deepStrictEqual(getCharacter('MeLiSsAnDrE'), melissandre);
+    assert.deepStrictEqual(getCharacter('melissandre'), melissandre);
+    assert.deepStrictEqual(getCharacter('MELISSANDRE'), melissandre);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    assert.strictEqual(getCharacter('Cersel'), undefined);
   });
 });
