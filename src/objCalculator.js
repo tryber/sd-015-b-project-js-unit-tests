@@ -19,8 +19,6 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const assert = require('assert');
-
 const calculator = {
   add: (value1, value2) => value1 + value2,
   mult: (value1, value2) => value1 * value2,
