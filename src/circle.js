@@ -29,12 +29,3 @@ const circle = (radius) => {
 };
 
 module.exports = circle;
-
-const assert = require('assert');
-
-const PI = 3.14;
-
-assert.strictEqual(circle(5).radius, 5);
-assert.strictEqual(circle(5).area, 78.5);
-assert.strictEqual(circle(5).circumference, parseFloat((2 * PI * 5)));  
-assert.strictEqual(circle(), undefined);
