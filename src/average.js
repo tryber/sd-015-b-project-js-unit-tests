@@ -15,7 +15,7 @@
 // consultei o repositorio do André Luiz S. pois estava tento dificuldades pois estava com dificuldade no typeof e no Math.Round
 // https://github.com/tryber/sd-015-b-project-js-unit-tests/commit/e6b6190926b6efbc188394c111c3ffa451f8d432
 const average = (array) => {
-  if (typeof array === 'undefined') { return undefined; } 
+  if (typeof array[0] === 'undefined') { return undefined; } 
   let results = 0;
   let soma = 0;
   for (let i = 0; i < array.length; i = +1) {
@@ -28,4 +28,5 @@ const average = (array) => {
   return Math.round(results);
 };
 
+console.log(average([]));
 module.exports = average;
