@@ -27,7 +27,8 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    assert.strictEqual(typeof circle(2),'object');
+    assert.strictEqual(typeof circle(2),'object'); //https://pt.stackoverflow.com/questions/77190/como-saber-se-um-objeto-%C3%A9-um-array-em-javascript-sem-jquery
+    
     // Teste se o objeto retornado tem 3 entradas.
     assert.strictEqual(Object.keys(circle(2)).length, 3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
