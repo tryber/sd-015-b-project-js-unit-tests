@@ -109,7 +109,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // retornoTeste6.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
 
-    assert.deepStrictEqual(retornoTeste6.consumption, ['coxinha', 'agua', 'sopa', 'sashimi']);
+    assert.strictEqual(retornoTeste6.consumption.length, 4);
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
