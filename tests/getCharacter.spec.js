@@ -61,5 +61,6 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     assert.deepStrictEqual(getCharacter('briennE'), { name: 'Brienne Tarth', class: 'Knight', phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'] });
     assert.deepStrictEqual(getCharacter('melissandrE'), { name: 'Melissandre', class: 'Necromancer', phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'] });
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    assert.deepStrictEqual(getCharacter('Joao Paulo'), undefined);
   });
 });
