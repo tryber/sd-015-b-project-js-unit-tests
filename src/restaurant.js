@@ -86,17 +86,17 @@ const createMenu = (menu) => {
     consumption: menuItens,
     order: (request) => menuItens.push(request),
     pay: () => {
-      let sum = 0;
+      let total = 0;
       for (let i = 0; i < menuItens.length; i += 1) {
         let item = menuItens[i];
         if (Object.keys(menu.drink).includes(item)) {
-          sum += menu.drink[item];
+          total += menu.drink[item];
         }
         if (Object.keys(menu.food).includes(item)) {
-          sum += menu.food[item];
+          total += menu.food[item];
         }
       }
-      return sum * 1.1;
+      return total + total * 0.1;
     },
   };
   return result;
