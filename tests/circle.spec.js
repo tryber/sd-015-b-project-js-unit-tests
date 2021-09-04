@@ -38,8 +38,8 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     assert.strictEqual(Object.entries(circle(1)).length, 3, error);
     assert.strictEqual(circle(), undefined, error);
     assert.deepStrictEqual(circle(2).circumference, 12.56, error);
-    const aux = parseFloat(circle(3).area.toPrecision(2));
-    assert.deepStrictEqual(aux, 28, error);
+    const aux = parseFloat(circle(3).area.toPrecision(4));
+    assert.deepStrictEqual(aux, 28.26, error);
     const aux1 = circle(3);
     aux1.area = parseFloat((aux1.area).toPrecision(4));
     const aux2 = {
@@ -47,6 +47,6 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
       area: 28.26,
       circumference: 18.84,
     };
-    assert.deepStrictEqual(aux1, aux2);
+    assert.deepStrictEqual(aux1, aux2, error);
   });
 });
