@@ -39,4 +39,5 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+console.log(productDetails('a', 'b')[1].details.productId.includes(123));
 module.exports = productDetails;
