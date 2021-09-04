@@ -17,13 +17,14 @@
 
 const myCounter = () => {
   var myArray = [];
-  for (var counter = 0; counter <= 3; counter += 1) {
+  for (let counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
-    for (var counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
+    for (let index = 2; index <= 3; index += 1) {
+      myArray.push(index);
     }
   }
   return myArray;
 };
+// só precisei trocar o var pelo let, para n vazar do escopo
 
 module.exports = myCounter;
