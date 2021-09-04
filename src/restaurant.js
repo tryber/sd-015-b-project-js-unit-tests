@@ -89,14 +89,35 @@ function clientOrder(order) {
   this.consumption.push(order);
 }
 
-const createMenu = (order) => {
+const createMenu = (orderObj) => {
   const myOrder = {
-    fetchMenu: () => order,
+    fetchMenu: () => orderObj,
     consumption: [],
     order: clientOrder,
+    pay: function check() {
+      let totalPayment = 0;
+      const ordered = this.fetchMenu();
+
+      for (let i = 0; i < this.consumption.length; i += 1) {
+        const consumed = this.consumption[i];
+
+        if (ordered.food[consumed]) {
+          totalPayment += ordered.food[consumed];
+        } else if (ordered.drink[consumed]) {
+          totalPayment += ordered.drink[consumed];
+        }
+      }
+
+      return (totalPayment * 1.1).toFixed(2);
+    },
   };
 
   return myOrder;
 };
-
+const result = createMenu(meuRestaurante);
+console.log(Object.keys(result.fetchMenu()));
+result.order('coxinha');
+result.order('agua');
+result.order('coxinha');
+console.log(typeof result.pay());
 module.exports = createMenu;
