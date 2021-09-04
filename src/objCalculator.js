@@ -25,5 +25,5 @@ const calculator = {
   div: (number1, number2) => Math.floor(number1 / number2),
   sub: (number1, number2) => number1 - number2,
 };
-console.log(calculator.div(3, 2));
+
 module.exports = calculator;
