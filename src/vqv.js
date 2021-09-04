@@ -26,5 +26,4 @@ trabalho na Trybe e mando muito em programação!
 };
 
 console.log(vqv('tunico', 30));
-
 module.exports = vqv;
