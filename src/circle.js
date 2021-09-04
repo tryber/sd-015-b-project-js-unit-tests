@@ -24,10 +24,10 @@ const circle = (radius) => {
   if (!radius) { return undefined; }
   return {
     radius,
-    area: PI * radius * radius,
+    area: parseFloat((PI * radius * radius).toPrecision(3)),
     circumference: 2 * PI * radius,
   };
 };
-// console.log(circle(5));
 
+assert.strictEqual(circle(3).area, 28.3);
 module.exports = circle;
