@@ -93,6 +93,9 @@ function amountPayment(obj, consumption) {
   return amount + amount * 0.1;
 }
 
-const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [], order: function order(item) { createOrder(item, this.consumption); }, pay: function pay() { return amountPayment(obj, this.consumption); } });
+const createMenu = (obj) => ({ fetchMenu: () => obj,
+  consumption: [],
+  order: function order(item) { createOrder(item, this.consumption); },
+  pay: function pay() { return amountPayment(obj, this.consumption); } });
 
 module.exports = createMenu;
