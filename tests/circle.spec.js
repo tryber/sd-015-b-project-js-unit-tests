@@ -40,5 +40,11 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     const areaRadius3 = PI * 3 * 3;
     assert.strictEqual(circle(3).area, areaRadius3);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    const circleRadius3 = {
+      radius: 3,
+      area: PI * 3 * 3,
+      circumference: 2 * PI * 3,
+    };
+    assert.deepStrictEqual(circle(3), circleRadius3);
   });
 });
