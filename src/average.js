@@ -17,7 +17,7 @@
 
 const isAllNumber = (arr) => {
   let isNumber = true;
-  for (item of arr) {
+  for (let item of arr) {
     if (typeof item !== 'number') {
       isNumber = false;
     }
@@ -29,15 +29,14 @@ const average = (arr) => {
   // add your implementation here
   if (isAllNumber(arr) === false || arr.length === 0) {
     return undefined;
-  } else {
-    let sum = 0;
-    for (number of arr) {
-      sum += number;
-    }
-    const meanInt = Math.round(sum / arr.length);
-
-    return meanInt;
   }
+  let sum = 0;
+  for (let number of arr) {
+    sum += number;
+  }
+  const meanInt = Math.round(sum / arr.length);
+
+  return meanInt;
 };
 
 module.exports = average;
