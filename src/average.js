@@ -18,17 +18,17 @@ const average = (array) => {
   }
 
   let calc = 0;
-  for (const number in array) {
-    if (typeof array[number] === 'string') {
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] === 'string') {
       return undefined;
     }
-    calc += array[number];
+    calc += array[index];
   }
 
-  calc = calc / array.length;
-
+  calc /= array.length;
 
   return Math.round(calc);
-}
+};
 
 module.exports = average;
