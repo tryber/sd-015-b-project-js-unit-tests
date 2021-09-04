@@ -85,9 +85,15 @@ const meuRestaurante = {
   drink: { agua: 3.90, cerveja: 6.90 },
 };
 
+function clientOrder(order) {
+  this.consumption.push(order);
+}
+
 const createMenu = (order) => {
   const myOrder = {
     fetchMenu: () => order,
+    consumption: [],
+    order: clientOrder,
   };
 
   return myOrder;
