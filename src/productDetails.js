@@ -39,4 +39,6 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
+console.log(productDetails('dove', 'rexona')[0].name);
+
 module.exports = productDetails;
