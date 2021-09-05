@@ -15,8 +15,8 @@
 const average = (arr) => {
   const size = arr.length;
   let notNumber = false;
-  for (let i = 0; i < size; i += 1 ) {
-    if (typeof(arr[i]) !== "number") {
+  for (let i = 0; i < size; i += 1) {
+    if (typeof (arr[i]) !== 'number') {
       notNumber = true;
     }
   }
