@@ -40,3 +40,9 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+const produto = productDetails('Alcool gel', 'Máscara');
+
+const produtoDetails0 = produto[0].details.productId; 
+const produtoDetails1 = produto[1].details.productId; 
+
+console.log(produtoDetails0.slice(10, 14), produtoDetails1.slice(7, 10));
