@@ -21,12 +21,16 @@ describe('2 - Implemente os casos de teste para a função `numbers`', () => {
     // assert.fail();
     assert.strictEqual(typeof numbers, 'function');
     // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
-    assert.strictEqual(numbers([1, 2, 3, 4, 5]), true);
+    const test1 = numbers([1, 2, 3, 4, 5]);
+    assert.strictEqual(test1, true);
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
-    assert.strictEqual(numbers([1, 2, '3', 4, 5]), false);
+    const test2 = numbers([1, 2, '3', 4, 5]);
+    assert.strictEqual(test2, false);
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
-    assert.strictEqual(numbers([1, 'a', 3]), false);
+    const test3 = numbers([1, 'a', 3]);
+    assert.strictEqual(test3, false);
     // Escreva um teste em que a função recebe [' '] e retorna false
-    assert.strictEqual(numbers([' ']), false);
+    const test4 = numbers([' ']);
+    assert.strictEqual(test4, false);
   });
 });
