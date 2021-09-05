@@ -12,18 +12,32 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-const number = () => Math.floor(Math.random() * 10);
-  const array = [];
-  for (let i = 0; i <= number(); i += 1) {
-    array.push(i);
-  }
-  console.log(array);
-  
-  const cal = array.reduce((previousVal, currentVal) => previousVal + currentVal, 0) / array.length;
-  const finalArray = Math.round(cal);
-  console.log(finalArray);
+// const average = (array) => {
+//   const typeArray = typeof(array);
+//   for (i=0; i<array.length; i+=1) {
+//     if (typeArray !== "number"){
+//       return "undefined";
+//     }
+//   }
 
-  return finalArray;
+//   const calc = array.reduce((previousVal, currentVal) => previousVal + currentVal, 0) / array.length;
+//   const finalArray = Math.round(calc);
+//   console.log(finalArray);
+
+//   return finalArray;
+// }
+const average = (array) => {
+  const size = array.length;
+  let sum = 0;
+  const check = array.some((value) => typeof value !== 'number');
+  if (check === true || size < 1) {
+    return undefined;
+  }
+  for (let index = 0; index < size; index += 1) {
+    let number = Math.round(array[index]);
+    sum += number;
+  }
+  return Math.round(sum / size);
 };
+
 module.exports = average;
