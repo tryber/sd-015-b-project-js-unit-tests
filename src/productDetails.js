@@ -23,6 +23,7 @@
     }
   ]
 */
+// const assert = require('assert');
 
 const productDetails = (firstProduct, secondProduct) => [
   {
@@ -38,5 +39,6 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-
+// assert.StrictEqual(productDetails('gel', 'pós barba')[0].details.productId, `${firstProduct}123`);
+// console.log(productDetails('gel', 'pós barba')[0].details.productId);
 module.exports = productDetails;
