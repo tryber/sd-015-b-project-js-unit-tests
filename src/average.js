@@ -21,8 +21,7 @@ const average = (array) => {
     return 'undefined';
   }
   }
-  let arredondar = Math.round(final);
-  return arredondar;
+  return Math.round(final / array.length);
 };
 
 module.exports = average;
