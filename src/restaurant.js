@@ -9,7 +9,8 @@
   - somar o valor da conta.
 
   A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
-  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o bom desenvolvimento do sistema. 
+  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE,
+  feitos em ordem para o bom desenvolvimento do sistema. 
   Eles guiarão você pelo desenvolvimento.
 
   Parâmetros:
@@ -45,8 +46,8 @@
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
-//
+// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato:
+//  { fetchMenu: () => objetoPassadoPorParametro }.
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -59,7 +60,7 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
 // adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você pode: 
+// DICA: para criar isso, você pode:
 // - Definir a função `createMenu()`
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
 // - E, depois, definir a função que será atribuída a `order`.
@@ -79,6 +80,54 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+function addConsumption(request) {
+  this.consumption.push(request);
+}
+function addDrink(orders, results) {
+  const drinks = this.showMenu().drink;
+  for (let i = 0; i < orders.length; i += 1) {
+    if (drinks[orders[i]]) {
+      results += drinks[orders[i]];
+    }
+  }
+  return results;
+}
+function totalPrice() {
+  let orders = this.consumption;
+  const foods = this.showMenu().food;
+  let results = 0;
+  for (let index = 0; index < orders.length; index += 1) {
+    if (foods[orders[index]]) {
+      results += foods[orders[index]];
+    }
+  }
+  const location = addDrink.bind(this);
+  const addDrinks = location(orders, results);
+  return addDrinks;
+}
+
+const createMenu = (menu) => ({
+    showMenu: () => menu,
+    consumption: [],
+    order: addConsumption,
+    pay: totalPrice,
+});
+
+const restaurant = createMenu({
+  food: {
+    pizza: 10,
+    lasanha: 12,
+  },
+  drink: {
+    coca: 5,
+    schweppes: 4,
+  },
+});
+
+restaurant.order('pizza');
+restaurant.order('lasanha');
+restaurant.order('coca');
+restaurant.order('lasanha');
+console.log(restaurant.pay());
 
 module.exports = createMenu;

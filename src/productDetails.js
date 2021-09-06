@@ -40,3 +40,7 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+const myProduct = productDetails('provolone', 'amora');
+const product1 = myProduct[0].details.productId;
+const product2 = myProduct[1].details.productId;
+console.log(product1.substring(product1.length - 3) === product2.substring(product2.length - 3));
