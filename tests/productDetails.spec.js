@@ -43,6 +43,6 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     assert.notDeepStrictEqual(a[0], a[1])
     // Teste que os dois productIds terminam com 123.
     for (const isItem of a)
-    assert.notDeepEqual(Object.values(isItem)[1].productId, `${a}123`)
+    assert.strictEqual(Object.values(isItem)[1].productId, `${isItem.name}123`)
   });
 });
