@@ -75,10 +75,6 @@ const createMenu = (object) => ({
   },
 });
 
-// let obj = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
-// obj.order('coxinha');
-// obj.pay();
-
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
