@@ -46,4 +46,3 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
    assert.strictEqual(Object.values(productDetails('Alcool gel', 'Máscara')[0].details).toString().endsWith('123') && Object.values(productDetails('Alcool gel', 'Máscara')[1].details).toString().endsWith('123'), true)
   });
 });
-    
