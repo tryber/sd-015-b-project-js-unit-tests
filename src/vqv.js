@@ -11,9 +11,9 @@
   Comportamento:
     vqv(Tunico, 30) // Retorna:
       'Oi, meu nome é Tunico!
-      Tenho 30 anos,
-      trabalho na Trybe e mando muito em programação!
-      #VQV!'
+    Tenho 30 anos,
+    trabalho na Trybe e mando muito em programação!
+    #VQV!'
 */
 
 const vqv = (nome, idade) => {
