@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-unused-collection */
+/* eslint-disable sonarjs/no-use-of-empty-return-value */
+/* eslint-disable sonarjs/no-extra-arguments */
 /* eslint-disable max-len */
 
 /*
@@ -47,12 +50,13 @@
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: () => objetoPassadoPorParametro }.
 //
+// const createMenu = (obj) => ({ fetchMenu: () => obj });
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
+// const createMenu = (obj) => ({ fetchMenu: () => obj, consumption: [] });
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -64,12 +68,49 @@
 // - Definir o objeto que a `createMenu()` retorna, mas separadamente 
 // - E, depois, definir a função que será atribuída a `order`.
 // ```
-// const restaurant = {}
-//
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
-// // Essa função deve ser associada à chave `order` de `restaurant`
+
+const menu = {
+  drink: {
+    agua: 3.50,
+  },
+
+  food: {
+    coxinha: 3.00,
+  },
+};
+
+const foodKeys = Object.keys(menu.food);
+const drinKeys = Object.keys(menu.drink);
+const createMenu = (myMenu) => ({
+  fetchMenu: () => myMenu, 
+  consumption: [],
+  order: (addConsumption) => addConsumption,
+  pay: (verifyItens) => verifyItens,
+});
+
+const restaurant = createMenu(menu);
+const orderFromMenu = (request) => restaurant.consumption.push(request);
+const totalPayment = () => {
+  let total = 0;
+  const items = [];
+  foodKeys.forEach((value, key) => {
+    total += menu.food[value];
+    items.push(value);
+  });
+  drinKeys.forEach((value, key) => {
+    total += menu.drink[value];
+    items.push(value);
+  });
+  total += total * 0.10;
+  return total;
+};
+
+restaurant.order = orderFromMenu('conxinha');
+restaurant.order = orderFromMenu('agua');
+const arrayItens = restaurant.consumption;
+console.log(restaurant.pay(totalPayment(arrayItens)));
+
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
@@ -78,7 +119,5 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = () => {};
 
 module.exports = createMenu;

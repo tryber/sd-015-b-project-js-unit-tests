@@ -23,6 +23,7 @@
     }
   ]
 */
+const assert = require('assert');
 
 const productDetails = (firstProduct, secondProduct) => [
   {
