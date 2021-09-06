@@ -87,7 +87,9 @@ const payment = function () {
   let count = 0;
   console.log(this.consumption);
   this.consumption.forEach((order) => {
-    count += this.fetchMenu().food[order] ? this.fetchMenu().food[order] : this.fetchMenu().drink[order];
+    count += this.fetchMenu().food[order] 
+    ? this.fetchMenu().food[order] 
+    : this.fetchMenu().drink[order];
   });
   count += (count * 0.1);
   return count;
