@@ -1,3 +1,6 @@
+/* eslint-disable sonarjs/no-unused-collection */
+/* eslint-disable sonarjs/no-use-of-empty-return-value */
+/* eslint-disable sonarjs/no-extra-arguments */
 /* eslint-disable max-len */
 
 /*
@@ -66,19 +69,48 @@
 // - E, depois, definir a função que será atribuída a `order`.
 // ```
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
+
+const menu = {
+  drink: {
+    agua: 3.50,
+  },
+
+  food: {
+    coxinha: 3.00,
+  },
+};
+
+const foodKeys = Object.keys(menu.food);
+const drinKeys = Object.keys(menu.drink);
 const createMenu = (myMenu) => ({
   fetchMenu: () => myMenu, 
   consumption: [],
   order: (addConsumption) => addConsumption,
+  pay: (verifyItens) => verifyItens,
 });
-
-const menu = {
-  drink: {},
-  food: {},
-};
 
 const restaurant = createMenu(menu);
 const orderFromMenu = (request) => restaurant.consumption.push(request);
+const totalPayment = () => {
+  let total = 0;
+  const items = [];
+  foodKeys.forEach((value, key) => {
+    total += menu.food[value];
+    items.push(value);
+  });
+  drinKeys.forEach((value, key) => {
+    total += menu.drink[value];
+    items.push(value);
+  });
+  total += total * 0.10;
+  return total;
+};
+
+restaurant.order = orderFromMenu('conxinha');
+restaurant.order = orderFromMenu('agua');
+const arrayItens = restaurant.consumption;
+console.log(restaurant.pay(totalPayment(arrayItens)));
+
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
