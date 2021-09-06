@@ -38,7 +38,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     const a = productDetails('ola');
     for (const isItem of a)
-    assert.strictEqual(typeof productDetails(isItem), {})
+    assert.strictEqual(typeof productDetails(isItem), 'object')
     // Teste que os dois objetos são diferentes entre si.
     assert.notDeepStrictEqual(a[0], a[1])
     // Teste que os dois productIds terminam com 123.
