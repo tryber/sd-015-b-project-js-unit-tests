@@ -80,17 +80,40 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = (menu, orders) => ({ 
-  showMenu: () => menu,
-  consumption: [],
-  order: () => createMenu.consumption.push(orders),
+function addConsumption(request) {
+  this.consumption.push(request);
+}
+function addDrink(orders, results) {
+  const drinks = this.showMenu().drink;
+  for (let i = 0; i < orders.length; i += 1) {
+    if (drinks[orders[i]]) {
+      results += drinks[orders[i]];
+    }
+  }
+  return results;
+}
+function totalPrice() {
+  let orders = this.consumption;
+  const foods = this.showMenu().food;
+  let results = 0;
+  for (let index = 0; index < orders.length; index += 1) {
+    if (foods[orders[index]]) {
+      results += foods[orders[index]];
+    }
+  }
+  const location = addDrink.bind(this);
+  const addDrinks = location(orders, results);
+  return addDrinks;
+}
+
+const createMenu = (menu) => ({
+    showMenu: () => menu,
+    consumption: [],
+    order: addConsumption,
+    pay: totalPrice,
 });
 
-const request = (order) => ({ order: () => createMenu.consumption });
- 
-module.exports = createMenu;
-
-const menu = {
+const restaurant = createMenu({
   food: {
     pizza: 10,
     lasanha: 12,
@@ -99,7 +122,12 @@ const menu = {
     coca: 5,
     schweppes: 4,
   },
-};
+});
 
-console.log(createMenu().order('amora'));
-console.log(createMenu.consumption);
+restaurant.order('pizza');
+restaurant.order('lasanha');
+restaurant.order('coca');
+restaurant.order('lasanha');
+console.log(restaurant.pay());
+
+module.exports = createMenu;
