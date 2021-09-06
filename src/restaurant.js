@@ -80,39 +80,27 @@
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 const restaurant = {};
 
-const checkFoods = () => {
+const checkFoodsAndDrinks = () => {
   const foods = restaurant.fetchMenu().food;
+  const drinks = restaurant.fetchMenu().drink;
   const orders = restaurant.consumption;
-  let foodValue = 0;
+  let sumValues = 0;
 
   orders.forEach((item) => {
     if (typeof foods[item] === 'number') {
-      foodValue += foods[item];
+      sumValues += foods[item];
     }
-  });
-
-  return foodValue;
-};
-
-const checkDrinks = () => {
-  const drinks = restaurant.fetchMenu().drink;
-  const orders = restaurant.consumption;
-  let drinkValue = 0;
-
-  orders.forEach((item) => {
     if (typeof drinks[item] === 'number') {
-      drinkValue += drinks[item];
+      sumValues += drinks[item];
     }
   });
-
-  return drinkValue;
+  return sumValues;
 };
 
 const total = () => {
   let result = 0;
 
-  result += checkFoods();
-  result += checkDrinks();
+  result += checkFoodsAndDrinks();
   result += (result * 0.1);
 
   return result;
