@@ -39,9 +39,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-const object01 = Object.values(productDetails('pao', 'queijo')[0].details);
-    const object02 = Object.values(productDetails('pao', 'queijo')[1].details);
-    const toStr01 = object01.toString();
-    const toStr02 = object02.toString();
-console.log(toStr01.slice(toStr01.length - 3));
 module.exports = productDetails;
