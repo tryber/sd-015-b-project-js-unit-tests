@@ -32,15 +32,16 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    assert.strictEqual(Array.isArray(productDetails(), true), );
+    assert.ok(typeof productDetails('a', 'b'), Object)
     // Teste que o array retornado pela função contém dois itens dentro.
     const produtos = productDetails('Alcool gel', 'Mascara');
     assert.strictEqual(produtos.length, 2);
     // Teste que os dois itens dentro do array'Alcool gel', 'Mascara' retornado pela função são objetos.
-    assert.strictEqual(productDetails[0], Object);
-    assert.strictEqual(productDetails[1], Object);
+    assert.ok(productDetails('a', 'b')[0], Object);
+    assert.ok(productDetails('a', 'b')[1], Object);
     // Teste que os dois objetos são diferentes entre si.
-    assert.strictEqual(productDetails[0] !== productDetails[1]);
+    assert.ok(productDetails('a', 'b')[0] !== productDetails[1]);
     // Teste que os dois productIds terminam com 123.
+    assert.ok(productDetails('a', 'b')[0].details.productId, `${productDetails('a', 'b')[0].name}123`)
   });
 });
