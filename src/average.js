@@ -13,7 +13,7 @@
     - average([1, '2']) // Retorno: undefined;
 */
 const average = (array, arrayLength) => {
-  array = [3, 4, 5];
+  array = [-11, 2, 5];
   arrayLength = array.length;
   let sum = 0;
   if (arrayLength === 0) {
@@ -26,7 +26,7 @@ const average = (array, arrayLength) => {
       }
       sum += array[index];
   }
-  const media = parseInt(sum / arrayLength, 10);
+  const media = Math.round(sum / arrayLength, 10);
   return media;
 };
 
