@@ -12,6 +12,24 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (array) => {
+  let cont = 0;
+  let soma = 0;
+  let media = 0; 
+  
+  if (!array.length) { // https://cibersistemas.pt/tecnologia/como-verificar-se-um-array-javascript-esta-vazio-ou-nao-com-length/
+      return undefined;
+  }
+
+  for (let num = 0; num < array.length; num += 1) {
+    if (typeof array[num] !== 'number') {
+      return undefined;
+    }
+    cont += 1;
+    soma += array[num];
+    media = soma / cont;
+  }
+  return Math.round(media);
+};
 
 module.exports = average;
