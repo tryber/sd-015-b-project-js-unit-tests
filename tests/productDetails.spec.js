@@ -34,7 +34,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que o retorno da função é um array.
     assert.strictEqual(Array.isArray(productDetails(), true), );
     // Teste que o array retornado pela função contém dois itens dentro.
-    assert.strictEqual(productDetails('Alcool gel', 'Mascara').length, 2);
+    const produtos = productDetails('Alcool gel', 'Mascara');
+    assert.strictEqual(produtos.length, 2);
     // Teste que os dois itens dentro do array'Alcool gel', 'Mascara' retornado pela função são objetos.
     assert.strictEqual(productDetails[0], Object);
     assert.strictEqual(productDetails[1], Object);
