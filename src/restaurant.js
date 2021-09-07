@@ -101,7 +101,8 @@ const createMenu = (itens) => {
   objetoRetornado.order = (request) => {
     objetoRetornado.consumption.push(request);
     };
-    objetoRetornado.pay = 0; 
+    objetoRetornado.pay = payFunction; 
+    return objetoRetornado;
   };
 
 module.exports = createMenu;
