@@ -57,7 +57,7 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, 
+// PASSO 3: Crie uma função, dentro da função `createMenu()`, que, dada uma string recebida por parâmetro, 
 // adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
 // DICA: para criar isso, você pode: 
 // - Definir a função `createMenu()`
@@ -79,6 +79,25 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const createMenu = (menu) => {
+  const objeto = {
+    fetchMenu: () => menu,
+    consumption: [],
+    order: (string) => {
+      objeto.consumption.push(string);
+    },
+    pay: () => {
+      let comandaTotal = 0;
+      objeto.consumption.forEach((elemento) => {
+        const comida = objeto.fetchMenu().food[elemento];
+        const bebida = objeto.fetchMenu().drinks[elemento];
+        if (comida !== undefined) comandaTotal += comida;
+        if (bebida !== undefined) comandaTotal += bebida;
+      });
+      return parseFloat((1.1 * comandaTotal).toFixed(2));
+    },
+  };
+  return objeto;
+};
 
 module.exports = createMenu;
