@@ -53,8 +53,8 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // mas não é necessariamente é limitado à chave `fetchMenu`, a qual tem como valor uma função.
     // 
     const pedidoEfetuado = {
-      food: { coxinha: 4.90, sorvete: 2.50, },
-      drink: { agua: 1.90, abacate: 4.50, },
+      food: { Takoyaki: 6.90, Sashimi: 14.50, Guioza: 10.50 },
+      drink: { agua: 1.90, CreamSoda: 4.50, },
     }
     const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
 
@@ -87,11 +87,12 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, 
     // como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
     // ```
-
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.consumption // Retorno: ["coxinha"]
     // ```
+    objetoRetornado.order('Takoyaki');
+    assert.deepStrictEqual(objetoRetornado.consumption, ['Takoyaki']);
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
@@ -101,6 +102,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order("sopa");
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
+    const pedido = ['Takoyaki','Sashimi','Guioza','CreamSoda'];
+    objetoRetornado.order('Sashimi');
+    objetoRetornado.order('Guioza');
+    objetoRetornado.order('CreamSoda');
+    assert.strictEqual(objetoRetornado.consumption, pedido);
     // ```
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -111,6 +117,10 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    objetoRetornado.order('Sashimi');
+    const pedido2 = ['Takoyaki','Sashimi','Guioza','CreamSoda','Sashimi'];
+    assert.strictEqual(objetoRetornado.consumption, pedido2);
+
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
@@ -121,5 +131,6 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+    assert.strictEqual(objetoRetornado.pay(), 50,9);
   });
 });
