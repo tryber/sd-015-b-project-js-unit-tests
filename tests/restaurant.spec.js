@@ -136,7 +136,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     newMenu.order('esfirra');
     newMenu.order('suco_de_laranja');
     newMenu.order('suco_de_laranja');
-    assert.deepStrictEqual(newMenu.pay(), 19.14);
+    assert.strictEqual(newMenu.pay(), 19.14);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });

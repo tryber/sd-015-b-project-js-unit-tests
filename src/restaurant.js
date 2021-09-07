@@ -98,37 +98,24 @@ function addDrinkToMenu(receivedName, receivedPrice) {
   return resultantObject;
 }
 
-function checkFoodOrderInMenu(itemsOrdered, receivedFoodMenu) {
-  let foodBill = 0;
+function checkOrderInMenu(itemsOrdered, receivedMenu) {
+  let theBill = 0;
+  const menuKeys = Object.keys(receivedMenu);
   for (let index = 0; index < itemsOrdered.length; index += 1) {
-    for(let key in receivedFoodMenu) {
-      if(itemsOrdered[index] === key) foodBill += receivedFoodMenu[key].price; 
-    }  
+    const key = itemsOrdered[index];
+    if (menuKeys.join('').includes(key)) theBill += receivedMenu[key].price;
   }
-  console.log(foodBill);
-  return foodBill;
-}
-
-function checkDrinkOrderInMenu(itemsOrdered, receivedDrinkMenu) {
-  let drinkBill = 0;
-  for (let index = 0; index < itemsOrdered.length; index += 1) {
-    for(let key in receivedDrinkMenu) {
-      if(itemsOrdered[index] === key) drinkBill += receivedDrinkMenu[key].price; 
-    }  
-  }
-  console.log(drinkBill);
-  return drinkBill;
+  return theBill;
 }
 
 function bill() {
   const foods = this.food;
   const drinks = this.drink;
   const consumed = this.consumption;
-  let foodsBill = checkFoodOrderInMenu(consumed, foods);
-  let drinksBill = checkFoodOrderInMenu(consumed, drinks);
-  console.log((foodsBill + drinksBill) * 1.10);
+  let foodsBill = checkOrderInMenu(consumed, foods);
+  let drinksBill = checkOrderInMenu(consumed, drinks);
   return (foodsBill + drinksBill) * 1.10;
-}  
+}
 
 const createMenu = (receivedObject) => {
   const theMenu = {
