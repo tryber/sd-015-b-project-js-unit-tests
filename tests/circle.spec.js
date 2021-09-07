@@ -25,7 +25,16 @@ const circle = require('../src/circle');
 
 describe('4 - Implemente os casos de teste para a função `circle`', () => {
   it('Verifica se ao receber um raio, a função `circle` retorna um objeto contedos os valores esperados', () => {
-    assert.fail();
+    // consultei o código do ARTUR LEMES MORETTI https://github.com/tryber/sd-015-b-project-js-unit-tests/pull/3/commits/a908a9f5b9ce6ccf0b61da212a2c4d12eab0ef3a
+    assert.strictEqual(typeof circle(5), 'object');
+    assert.strictEqual(Object.entries(circle(5)).length, 3);
+    assert.strictEqual(circle(), undefined);
+    assert.strictEqual(parseFloat(circle(2).circumference).toPrecision(3), parseFloat('12.56637').toPrecision(3));
+    assert.strictEqual(parseFloat(circle(3).area).toPrecision(3), parseFloat('28.27433').toPrecision(3));
+    const key = Object.keys(circle(3));
+    const values = Object.values(circle(3));
+    const object = { [key[0]]: values[0], [key[1]]: Math.round(values[1] * 100) / 100, [key[2]]: values[2] };
+    assert.deepStrictEqual(object, { radius: 3, area: 28.26, circumference: 18.84 });
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     // Teste se o objeto retornado tem 3 entradas.
