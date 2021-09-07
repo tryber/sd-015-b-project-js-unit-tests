@@ -1,13 +1,24 @@
-const vqv = (nome, idade) => {
-  if (typeof nome !== 'undefined' && typeof idade !== 'undefined') {
-    const greetings = `Oi, meu nome é ${nome}!
-    Tenho ${idade} anos,
-    trabalho na Trybe e mando muito em programação!
-    #VQV!`;
-    return greetings;
-  }
-  return undefined;
-};
+const assert = require('assert');
 
-let literal = vqv('henrique', 22);
-console.log(literal.replace(/  +/g, ''));
+const productDetails = (firstProduct, secondProduct) => [
+  {
+    name: firstProduct,
+    details: {
+      productId: `${firstProduct}123`,
+    },
+  },
+  {
+    name: secondProduct,
+    details: {
+      productId: `${secondProduct}123`,
+    },
+  },
+];
+
+assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')), true);
+assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
+assert.strictEqual(typeof productDetails('Alcool gel', 'Máscara')[0], 'object');
+assert.strictEqual(typeof productDetails('Alcool gel', 'Máscara')[1], 'object');
+assert.strictEqual(productDetails('café', 'chá')[0] !== productDetails('café', 'chá')[1], true);
+assert.strictEqual((productDetails('Café', 'Chá')[0]).details.productId.endsWith('123'), true);
+assert.strictEqual((productDetails('Café', 'Chá')[1]).details.productId.endsWith('123'), true);
