@@ -78,7 +78,57 @@
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+const restaurant = {};
 
-const createMenu = () => {};
+function newOrder(receivedString) {
+  this.consumption.push(receivedString);
+}
+
+function addFoodToMenu(receivedName, receivedPrice) {
+  const newFoodObject = {};
+  newFoodObject[receivedName] = { price: receivedPrice };
+  const resultantObject = Object.assign(this.food, newFoodObject);
+  return resultantObject;
+}
+
+function addDrinkToMenu(receivedName, receivedPrice) {
+  const newDrinkObject = {};
+  newDrinkObject[receivedName] = { price: receivedPrice };
+  const resultantObject = Object.assign(this.drink, newDrinkObject);
+  return resultantObject;
+}
+
+function checkOrderInMenu(itemsOrdered, receivedMenu) {
+  let theBill = 0;
+  const menuKeys = Object.keys(receivedMenu);
+  for (let index = 0; index < itemsOrdered.length; index += 1) {
+    const key = itemsOrdered[index];
+    if (menuKeys.join('').includes(key)) theBill += receivedMenu[key].price;
+  }
+  return theBill;
+}
+
+function bill() {
+  const foods = this.food;
+  const drinks = this.drink;
+  const consumed = this.consumption;
+  let foodsBill = checkOrderInMenu(consumed, foods);
+  let drinksBill = checkOrderInMenu(consumed, drinks);
+  return (foodsBill + drinksBill) * 1.10;
+}
+
+const createMenu = (receivedObject) => {
+  const theMenu = {
+    fetchMenu: () => receivedObject,
+    addFood: addFoodToMenu,
+    addDrink: addDrinkToMenu,
+    order: newOrder,
+    pay: bill,
+    food: {},
+    drink: {},
+    consumption: [],
+  };  
+  return theMenu;
+};  
 
 module.exports = createMenu;
