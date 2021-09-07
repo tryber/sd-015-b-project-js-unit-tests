@@ -56,7 +56,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
       food: { coxinha: 4.90, sorvete: 2.50, },
       drink: { agua: 1.90, abacate: 4.50, },
     }
-    const objetoRetornado = createMenu(pedidoEfetuado); // Retorno: { fetchMenu: () => {}, ... }
+    const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
 
     assert.strictEqual(typeof(objetoRetornado.fetchMenu), 'function' )
     
