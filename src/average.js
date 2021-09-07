@@ -11,7 +11,26 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const mediaDosNumeros = (num) => {
+  let somaDosNumeros = 0;
+  for (const val of num) {
+    somaDosNumeros += val;
+ }
+ return Math.round(somaDosNumeros / num.length);
+};
 
-const average = () => {};
+const average = (num) => {
+  let media = 0;
+  const verificador = num.every((cadaNumero) => Number.isInteger(cadaNumero));
+    if (num.length === 0) {
+  media = undefined;
+  } else if (verificador) {
+  media = mediaDosNumeros(num);
+  } else {
+    media = undefined;
+  }
+
+  return (media);
+};
 
 module.exports = average;
