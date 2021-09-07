@@ -22,7 +22,6 @@ const mediaDosNumeros = (num) => {
 const average = (num) => {
   let media = 0;
   const verificador = num.every((cadaNumero) => Number.isInteger(cadaNumero));
-  console.log(`verificador ${verificador}`);
     if (num.length === 0) {
   media = undefined;
   } else if (verificador) {
@@ -31,7 +30,6 @@ const average = (num) => {
     media = undefined;
   }
 
-console.log(`media ${media}`);
   return (media);
 };
 
