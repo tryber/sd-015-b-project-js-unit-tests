@@ -80,8 +80,19 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = (iten) => ({ fetchMenu: () => { `${iten}`; }, consumption: [] });
+const pedidoRestaurant = {};
 
-console.log(createMenu('teste'));
+const createMenu = (iten) => { 
+  pedidoRestaurant.fetchMenu = () => iten; 
+  pedidoRestaurant.consumption = [];
+  pedidoRestaurant.order = (request) => {
+    pedidoRestaurant.consumption.push(request);
+    };
+    pedidoRestaurant.pay = 0; 
+  };
+
+  createMenu('testerdsdasdefr');
+
+console.log(pedidoRestaurant);
 
 module.exports = createMenu;
