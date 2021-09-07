@@ -93,7 +93,7 @@ const payFunction = () => {
     }
   });
 
-  const conversorParaDinheiro = (Math.floor((result + (result * 0.1))* 100));
+  const conversorParaDinheiro = (Math.floor((result + (result * 0.1)) * 100));
   return conversorParaDinheiro / 100;
 };
 
