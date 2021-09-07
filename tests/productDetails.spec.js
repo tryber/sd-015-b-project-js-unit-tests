@@ -44,8 +44,24 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste que os dois objetos são diferentes entre si.
     assert.notDeepStrictEqual(product1InArray, product2InArray);
     // Teste que os dois productIds terminam com 123.
-    const testIfProduct1Includes = product1InArray.details.productId.includes('123', product1InArray.length - 3);
-    const testIfProduct2Includes = product2InArray.details.productId.includes('123', product1InArray.length - 3);
-    assert.strictEqual((testIfProduct1Includes && testIfProduct2Includes), true);
+    const objeto = productDetails('teste1', 'teste2');
+    const teste = '123';
+    const product1 = objeto[0].details.productId;
+    let stringToCompare1 = '';
+    let indexInProduct1 = product1.length - teste.length;
+    for (let index = 0; index < teste.length; index += 1) {
+      if (teste[index] === product1[indexInProduct1]) stringToCompare1 += product1[indexInProduct1];
+      indexInProduct1 += 1;
+    }
+    let verificacao1 = (teste === stringToCompare1);
+    const product2 = objeto[1].details.productId;
+    let stringToCompare2 = '';
+    let indexInProduct2 = product2.length - teste.length;
+    for (let index = 0; index < teste.length; index += 1) {
+      if (teste[index] === product2[indexInProduct2]) stringToCompare2 += product2[indexInProduct2];
+      indexInProduct2 += 1;
+    }
+    let verificacao2 = (teste === stringToCompare2);
+    assert.strictEqual((verificacao1 && verificacao2), true);
   });
 });
