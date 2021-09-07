@@ -92,7 +92,9 @@ const payFunction = () => {
       result += drinkRequest;
     }
   });
-  return result + (result * 0.1);
+
+  const conversorParaDinheiro = (Math.floor((result + (result * 0.1))* 100));
+  return conversorParaDinheiro / 100;
 };
 
 const createMenu = (itens) => { 

@@ -108,7 +108,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     objetoRetornado.order('Sashimi');
     objetoRetornado.order('Guioza');
     objetoRetornado.order('CreamSoda');
-    assert.strictEqual(objetoRetornado.consumption, pedido);
+    assert.deepStrictEqual(objetoRetornado.consumption, pedido);
     // ```
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // ```
     objetoRetornado.order('Sashimi');
     const pedido2 = ['Takoyaki','Sashimi','Guioza','CreamSoda','Sashimi'];
-    assert.strictEqual(objetoRetornado.consumption, pedido2);
+    assert.deepStrictEqual(objetoRetornado.consumption, pedido2);
 
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -133,6 +133,6 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
-    assert.strictEqual(objetoRetornado.pay(), 50,9);
+    assert.strictEqual(objetoRetornado.pay(), 55.98);
   });
 });
