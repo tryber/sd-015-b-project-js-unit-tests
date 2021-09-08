@@ -43,3 +43,4 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   });
 
 });
+// feito com o auxilio do codigo da Adriana-coderstar
