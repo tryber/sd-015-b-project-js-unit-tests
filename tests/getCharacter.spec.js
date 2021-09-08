@@ -86,6 +86,8 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
       phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
     });
     // Teste se a função se os parâmetros não são Case Sensitive.
+    // Feito com base no código do Gabriel Benedicto
+    // https://github.com/tryber/sd-015-b-project-js-unit-tests/blob/gabriel-benedicto-js-unit-tests/tests/getCharacter.spec.js
     assert.deepStrictEqual(getCharacter('ARYA'), characters.arya);
     assert.deepStrictEqual(getCharacter('arya'), characters.arya);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.

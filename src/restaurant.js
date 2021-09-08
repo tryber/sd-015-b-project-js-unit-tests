@@ -75,10 +75,68 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, 
+// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`,
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const restaurant = {};
+
+const addFood = (foodName, foodPrice) => {
+  const foodObject = {};
+  foodObject[foodName] = { price: foodPrice };
+  const result = Object.assign(this.drink, foodObject);
+
+  return result;
+};
+
+const addDrink = (drinkName, drinkPrice) => {
+  const drinkObject = {};
+  drinkObject[drinkName] = { price: drinkPrice };
+  const result = Object.assign(this.drink, drinkObject);
+
+  return result;
+};
+
+const checkOrder = (items, menu) => {
+  // Feito com o auxílio do código do Antônio Carlos
+  // https://github.com/tryber/sd-015-b-project-js-unit-tests/blob/antonio-c-n-silva-jr-js-unit-tests/src/restaurant.js
+  let total = 0;
+  const keys = Object.keys(menu);
+
+  for (let i = 0; i < items.length; i += 1) {
+    const key = keys[i];
+    if (keys.join('').includes(key)) total += menu[key].price;
+  }
+  
+  return total;
+};
+
+const bill = () => {
+  // Feito com o auxílio do código do Antônio Carlos
+  // https://github.com/tryber/sd-015-b-project-js-unit-tests/blob/antonio-c-n-silva-jr-js-unit-tests/src/restaurant.js
+  const foods = this.food;
+  const drinks = this.drink;
+  const consumed = this.consumption;
+  let foodsBill = checkOrder(consumed, foods);
+  let drinksBill = checkOrder(consumed, drinks);
+  return (foodsBill + drinksBill) * 1.10;
+};
+
+const orderFromMenu = (str) => {
+  this.consumption.push(str);
+};
+
+const createMenu = (obj) => {
+  obj.fetchMenu = () => obj;
+  obj.consumption = [];
+  obj.order = orderFromMenu;
+  obj.addFood = addFood;
+  obj.addDrink = addDrink;
+  obj.food = {};
+  obj.drink = {};
+  obj.pay = bill;
+  
+  return obj;
+};
 
 module.exports = createMenu;
