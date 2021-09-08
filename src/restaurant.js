@@ -86,6 +86,22 @@ const createMenu = (obj) => {
     order: (item) => {
       menu.consumption.push(item);
     },
+    pay: () => {
+      const food = Object.values(obj.food);
+      const drink = Object.values(obj.drink);
+      const consumptionLength = food.length; // or drink.length (eles são do mesmo tamanho)
+
+      let bill = 0;
+      for (let index = 0; index < consumptionLength; index += 1) {
+        bill += food[index];
+        bill += drink[index];
+      }
+
+      const tip = 0.1 * bill;
+      const total = bill + tip;
+
+      return total;
+    },
   };
 
   return menu;
