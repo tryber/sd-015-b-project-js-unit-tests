@@ -39,12 +39,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-// let a = productDetails('Alcool gel', 'Máscara');
-// let a1 = a[0];
-// let a2 = a[1];
-
-// let b = a1.includes("123");
-
-// console.log(b);
-
 module.exports = productDetails;
