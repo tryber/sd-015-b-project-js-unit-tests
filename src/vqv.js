@@ -18,4 +18,4 @@
 
 const vqv = (nome, idade) => {};
 
-module.exports = vqv;
+module.exports = vqv
