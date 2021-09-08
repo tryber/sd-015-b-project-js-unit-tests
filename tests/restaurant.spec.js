@@ -57,11 +57,15 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
       }),
       'object'
     );
-    // const objetoRetornado = createMenu(); // Retorno: { fetchMenu: () => {}, ... }
-    // ```
+
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`,
     // verifique que 'objetoRetornado.fetchMenu()' retorna um objeto cujas chaves são somente `food` e `drink`.
-    // ```
+    const objetoRetornado = createMenu({ food: {}, drink: {} });
+    const expectedArray = ['food', 'drink'];
+    assert.deepStrictEqual(
+      expectedArray,
+      Object.keys(objetoRetornado.fetchMenu())
+    );
     // const objetoRetornado = createMenu({ food: {}, drink: {} });
     // objetoRetornado.fetchMenu() // Retorno: { food: {}, drink: {}}
     // ```
