@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 /*
   Use template literals para escrever uma função que,
   recebe seu nome e sua idade e retorna o parágrafo descrito abaixo.
@@ -15,7 +13,12 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
-
-const vqv = (nome, idade) => {};
-
+const vqv = (nome, idade) => {
+ if (nome === undefined || idade === undefined) {
+  return undefined;
+ }
+ const parte1 = `Oi, meu nome é ${nome}!\nTenho ${idade} anos,\n`;
+ const parte2 = 'trabalho na Trybe e mando muito em programação!\n#VQV!';
+ return parte1 + parte2;
+};
 module.exports = vqv;
