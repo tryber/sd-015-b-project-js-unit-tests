@@ -15,7 +15,4 @@
 
 const average = () => {};
 
-const assert = require('assert');
-
-assert.strictEqual();
 module.exports = average;

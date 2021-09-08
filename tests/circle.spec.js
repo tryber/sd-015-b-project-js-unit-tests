@@ -36,3 +36,4 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
   });
 });
+// feito com o auxilio do codigo do claudiojrhaas

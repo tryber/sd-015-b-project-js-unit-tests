@@ -27,3 +27,4 @@ const calculator = {
 };
 
 module.exports = calculator;
+// feito com o auxilio do codigo do claudiojrhaas
