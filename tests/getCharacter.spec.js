@@ -58,6 +58,12 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     };
     assert.deepStrictEqual(getCharacter('Arya'), expectedArya);
     // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
+    const expectedBrienne = {
+      name: 'Brienne Tarth',
+      class: 'Knight',
+      phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
+    };
+    assert.deepStrictEqual(getCharacter('Brienne'), expectedBrienne);
     // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
     // Teste se a função se os parâmetros não são Case Sensitive.
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
