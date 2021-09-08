@@ -47,17 +47,17 @@ OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enq
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
   it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
     assert.strictEqual(getCharacter(), undefined);
-    assert.strictEqual(getCharacter('Arya'), {
+    assert.deepStrictEqual(getCharacter('Arya'), {
       name: 'Arya Stark',
       class: 'Rogue',
       phrases: ['Not today', 'A girl has no name.'],
     },);
-    assert.strictEqual(getCharacter('Brienne'), {
+    assert.deepStrictEqual(getCharacter('Brienne'), {
       name: 'Brienne Tarth',
       class: 'Knight',
       phrases: ['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.'],
     },);
-    assert.strictEqual(getCharacter('Melissandre'), {
+    assert.deepStrictEqual(getCharacter('Melissandre'), {
       name: 'Melissandre',
       class: 'Necromancer',
       phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
