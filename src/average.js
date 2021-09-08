@@ -11,7 +11,23 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+function verifica(vetor) {
+  let result = false;
+  for (let i = 0; i < vetor.length; i += 1) {
+    if (typeof vetor[i] !== 'number') {
+      result = true;
+    }
+  }
+  return result;
+}
 
-const average = () => {};
+const average = (vetor) => {
+  if (vetor.length === 0) {
+    return undefined;
+  } if (verifica(vetor)) {
+    return undefined;
+  }
+    return Math.round(vetor.reduce((acumulador, element) => acumulador + element) / vetor.length);
+};
 
 module.exports = average;

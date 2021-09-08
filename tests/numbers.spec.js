@@ -9,7 +9,8 @@ const numbers = require('../src/numbers');
 
   Parâmetros:
     - Um array. Exemplos: [1, 2]; [1, 2, 3, 4, 5]; [1, 2, 'a']; [].
-  Comportamento:
+  Comportamento:        // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
+        assert.deepStrictEqual(numbers([1, 'a', 3]), false);
     - numbers([2, 3, 4]); // Retorna: true
     - numbers([2, 'errado', 5]); // Retorna: false
 
@@ -18,10 +19,14 @@ const numbers = require('../src/numbers');
 
 describe('2 - Implemente os casos de teste para a função `numbers`', () => {
   it('Verifica se a função `numbers`retorna `true` quando o array contém apenas numeros e falso caso contrário', () => {
-    assert.fail();
+    //assert.fail();
     // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
+    assert.deepStrictEqual(numbers([1,2,3,4,5]),true);
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
+    assert.deepStrictEqual(numbers([1,2,'3',4,5]), false);
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
+    assert.deepStrictEqual(numbers([1, 'a', 3]), false);
     // Escreva um teste em que a função recebe [' '] e retorna false
+    assert.deepStrictEqual(numbers(['']), false);
   });
 });
