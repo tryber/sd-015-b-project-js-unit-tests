@@ -16,14 +16,21 @@
 */
 
 const myCounter = () => {
-  var myArray = [];
-  for (var counter = 0; counter <= 3; counter += 1) {
-    myArray.push(counter);
-    for (var counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
+  const myArray = [];
+  for (let firstCounter = 0; firstCounter <= 3; firstCounter += 1) {
+    myArray.push(firstCounter);
+    for (let secondCounter = 2; secondCounter <= 3; secondCounter += 1) {
+      myArray.push(secondCounter);
     }
   }
   return myArray;
 };
+
+/**
+ * ! Não se pode usar o var, pois ele é 'funciton scoped', ou seja, os dois loops for tem acesso ao valor var. Dessa forma os loops seriam: counter = 0 / counter = 2 --> quando voltar para o primeiro for, o counter será igual a 2.
+ * * Já com o let, que é 'block scoped', os valores de counter sao contidos nos loops for e, por isso, atuam de forma independente.
+ */
+
+console.log(myCounter());
 
 module.exports = myCounter;

@@ -68,4 +68,8 @@ const getCharacter = (name) => {
   return undefined;
 };
 
+const { strict } = require('assert');
+const assert = require('assert');
+const exp = require('constants');
+
 module.exports = getCharacter;
