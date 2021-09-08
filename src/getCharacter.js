@@ -72,9 +72,4 @@ const { strict } = require('assert');
 const assert = require('assert');
 const exp = require('constants');
 
-// ESCREVA SEUS TESTES ABAIXO:
-// Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
-// Teste se a função se os parâmetros não são Case Sensitive.
-// Teste se ao passar um nome que não está na tabela, a função retorna undefined.
-
 module.exports = getCharacter;

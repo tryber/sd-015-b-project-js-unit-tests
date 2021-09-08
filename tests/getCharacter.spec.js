@@ -82,5 +82,7 @@ describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
     assert.deepStrictEqual(getCharacter('BrIeNnE'), expectedBrienne);
     assert.deepStrictEqual(getCharacter('mELIssaNDrE'), expectedMelissandre);
     // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+    assert.strictEqual(getCharacter('Bran'), undefined);
+
   });
 });
