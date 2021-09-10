@@ -12,22 +12,7 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-
 const average = (array) => {
-  // let sum = 0;
-  // let arrayAverage;
-  // if (array.length === 0) {
-  //   return undefined;
-  // } 
-  //   for (let i = 0; i < array.length; i += 1) {
-  //     if (typeof (array[i]) !== 'number') {
-  //       return undefined;
-  //     }
-  //       sum += array[i];
-  //       arrayAverage = Math.round(sum / array.length);
-  //   }
-  //   return arrayAverage;
-
   let contador = 0;
   let results;
   if (array.length === 0) {
@@ -38,13 +23,10 @@ const average = (array) => {
     if (typeof (array[index]) !== 'number') {
       return undefined;
     }
-    contador += array[index];   
-    
-  }
+contador += array[index];
+ }
   results = Math.round(contador / array.length); 
   return results;  
-  }
-  
-  
+  };
  
 module.exports = average;
