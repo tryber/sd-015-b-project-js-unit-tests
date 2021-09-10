@@ -16,6 +16,8 @@
       #VQV!'
 */
 
+const assert = require('assert');
+
 const vqv = (nome, idade) => {
   if (nome === null) {
     return undefined;
@@ -25,10 +27,13 @@ const vqv = (nome, idade) => {
     return undefined;
   }
 
-  console.log(`Oi, meu nome é ${nome}!\n
+  let resposta = `Oi, meu nome é ${nome}!\n
   Tenho ${idade}anos,\n
   trabalho na Trybe e manda muito em programação!\n
-  #VQV!`);
+  #VQV!`;
+
+  assert.strictEqual(resposta, undefined);
+
   };
 
 module.exports = vqv;
