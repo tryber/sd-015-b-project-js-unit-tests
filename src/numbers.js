@@ -15,7 +15,7 @@ const numbers = (myArray) => {
       return false;
     }
   }
-  return true;
+  return true;    
 };
 
 module.exports = numbers;

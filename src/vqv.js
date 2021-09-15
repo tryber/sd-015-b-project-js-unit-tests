@@ -16,24 +16,15 @@
       #VQV!'
 */
 
-// const assert = require('assert');
+const vqv = (nome, idade) => {
+  if (nome === undefined || idade === undefined) {
+    return undefined;
+  } 
 
-// const vqv = (nome, idade) => {
-//   if (nome === null) {
-//     return undefined;
-//   }
+  return `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
+  };
 
-//   if (idade === null) {
-//     return undefined;
-//   }
-
-//   let resposta = `Oi, meu nome é ${nome}!\n
-//   Tenho ${idade}anos,\n
-//   trabalho na Trybe e manda muito em programação!\n
-//   #VQV!`;
-
-//   assert.strictEqual(resposta, undefined);
-
-//   };
-
-// module.exports = vqv;
+module.exports = vqv;
