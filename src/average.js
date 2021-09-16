@@ -20,7 +20,7 @@ const average = (arrayWithNumbers) => {
 
   for (let index = 0; index < arrayWithNumbers.length; index += 1) {
     sum += arrayWithNumbers[index];
-    if ( typeof(arrayWithNumbers[index]) !== 'number') {
+    if (typeof arrayWithNumbers[index] !== 'number') {
       return undefined;
     }
   }
