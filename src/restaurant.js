@@ -67,7 +67,7 @@
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
+// 
 // const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
@@ -79,6 +79,25 @@
 // soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, 
 // você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const restaurant = {};
+
+const bill = () => {
+  let value = 0;
+  restaurant.comsumption.forEach((consumed) => {
+    let foodValue = restaurant.fetchMenu().food[consumed];
+    let drinkValue = restaurant.fetchMenu().drink[consumed];
+    if (foodValue) value += foodValue;
+    if (drinkValue) value += drinkValue;
+  });
+  return (value * 1.1).toFixed(2);
+};
+
+const createMenu = (obj) => {
+  restaurant.fetchMenu = () => obj;
+  restaurant.comsumption = [];
+  restaurant.order = (string) => restaurant.comsumption.push(string);
+  restaurant.pay = bill;
+  return restaurant;
+};
 
 module.exports = createMenu;
