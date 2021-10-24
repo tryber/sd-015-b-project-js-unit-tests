@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-shadow */
 /*
   Desenvolva um objeto calculator que possui quatro chaves:
     - add;
@@ -15,10 +17,15 @@
   - Um número inteiro;
 
   Comportamento:
-  calculator.add(1, 1) // Retorno: 2;
+   // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
-
+const calculator = { 
+add: (a, b) => a + b,   
+mult: (a, b) => a * b, 
+div: (a, b) => Math.floor(a / b), 
+sub: (a, b) => a - b, 
+};
+console.log(calculator.div(3, 2));
 module.exports = calculator;

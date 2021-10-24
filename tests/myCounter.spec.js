@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { read } = require('fs');
 const myCounter = require('../src/myCounter');
 
 /*
@@ -19,3 +20,6 @@ describe('8 - Implemente a função `myCounter`', () => {
     assert.deepStrictEqual(myCounter(), expectedOutput);
   });
 });
+
+
+

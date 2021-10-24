@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable object-shorthand */
+/* eslint-disable sonarjs/no-use-of-empty-return-value */
 /*
   Dada uma função chamada createStudent que recebe como parâmetro um nome,
   retorne um objeto que contenha duas chaves:
@@ -15,6 +18,14 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {};
-
+const createStudent = (name) => {
+  const nameOfStudent = name;
+  const estudanteObj = {
+  name: nameOfStudent,
+  feedback: () => 'Eita pessoa boa!',
+  };
+return estudanteObj;
+};
+const estudante = createStudent('Leandrão, o Lobo Solitário');
 module.exports = createStudent;
+console.log(estudante.name);
